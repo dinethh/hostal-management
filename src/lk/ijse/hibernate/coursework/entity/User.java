@@ -7,22 +7,19 @@ import javax.persistence.Id;
 
 /**
  * Author:Dineth Panditha
- * Date  :3/28/2023
- * Time  :9:39 PM
+ * Date  :3/31/2023
+ * Time  :10:00 AM
  * Name  :ORM-CourseWork
  */
-
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @ToString
 @Entity
-public class Room {
+public class User {
     @Id
-    private String room_type_id;
-    private String type;
-    private double key_money;
-    private int qty;
+    private String user_id;
+    private String password;
+
 }
