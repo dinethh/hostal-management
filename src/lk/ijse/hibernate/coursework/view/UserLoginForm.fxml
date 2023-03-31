@@ -1,14 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.hibernate.coursework.controller.UserLoginFormController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="443.0" prefWidth="673.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.coursework.controller.UserLoginFormController">
+   <children>
+      <Label layoutX="254.0" layoutY="14.0" text="The D24 Hostel">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="14.0" layoutY="72.0" prefHeight="357.0" prefWidth="283.0" style="-fx-background-color: #d3d3d3; -fx-background-radius: 10;">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Login">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Label>
+            <Separator layoutX="5.0" layoutY="45.0" prefWidth="200.0" />
+            <Label layoutX="14.0" layoutY="108.0" text="User Name">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="150.0" text="Password">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="userName" layoutX="105.0" layoutY="106.0" />
+            <JFXTextField fx:id="password" layoutX="105.0" layoutY="148.0" prefHeight="25.0" prefWidth="135.0" />
+            <JFXButton layoutX="66.0" layoutY="232.0" onAction="#userLoginOnAction" prefHeight="25.0" prefWidth="135.0" style="-fx-background-color: #03a9f4; -fx-background-radius: 20;" text="Login" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="66.0" layoutY="273.0" prefHeight="25.0" prefWidth="135.0" style="-fx-background-color: #3f3f3f; -fx-background-radius: 20;" text="Update" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>

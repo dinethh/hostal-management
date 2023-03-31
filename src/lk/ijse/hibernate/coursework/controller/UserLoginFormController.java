@@ -1,5 +1,8 @@
 package lk.ijse.hibernate.coursework.controller;
 
+import com.jfoenix.controls.JFXTextField;
+import javafx.event.ActionEvent;
+
 /**
  * Author:Dineth Panditha
  * Date  :3/31/2023
@@ -9,4 +12,10 @@ package lk.ijse.hibernate.coursework.controller;
 
 public class UserLoginFormController {
 
+    public JFXTextField userName;
+    public JFXTextField password;
+
+    public void userLoginOnAction(ActionEvent actionEvent) {
+
+    }
 }
