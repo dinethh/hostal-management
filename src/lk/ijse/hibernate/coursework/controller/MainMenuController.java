@@ -24,7 +24,7 @@ public class MainMenuController {
         MyPane.getChildren().add(node);
     }
     public void onClickUser(MouseEvent mouseEvent) throws IOException {
-        Node node = FXMLLoader.load(getClass().getResource("../view/"));
+        Node node = FXMLLoader.load(getClass().getResource("../view/UserForm.fxml"));
         setNode(node);
     }
 

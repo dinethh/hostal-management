@@ -2,8 +2,10 @@ package lk.ijse.hibernate.coursework.entity;
 
 import lombok.*;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Author:Dineth Panditha
@@ -17,9 +19,14 @@ import javax.persistence.Id;
 @Setter
 @ToString
 @Entity
+@Table(name = "User")
 public class User {
     @Id
-    private String user_id;
+    @Column(name = "userId",length = 10)
+    private String userId;
+    @Column(name = "user_name")
+    private String user_name;
+    @Column(name = "password")
     private String password;
 
 }

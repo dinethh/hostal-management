@@ -16,10 +16,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="mysql-connector-java-8.0.24" level="project" />
     <orderEntry type="library" name="jfoenix-8.0.10" level="project" />
-    <orderEntry type="library" name="antlr-2.7.7" level="project" />
-    <orderEntry type="library" name="hibernate-jpa-2.1-api-1.0.0.Final" level="project" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
@@ -29,5 +26,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="antlr-2.7.7" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-8.0.24" level="project" />
   </component>
 </module>

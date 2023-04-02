@@ -2,10 +2,13 @@ package lk.ijse.hibernate.coursework.dao.impl;
 
 import lk.ijse.hibernate.coursework.dao.custom.UserDAO;
 import lk.ijse.hibernate.coursework.entity.User;
+import lk.ijse.hibernate.coursework.util.SessionFactoryConfiguration;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,39 +21,40 @@ import java.util.List;
 public class UserDAOImpl implements UserDAO {
     private  Session session;
 
+
     @Override
-    public List<User> getAll(){
-        String sqlQuery = "FROM Customer";
-        Query query = session.createQuery(sqlQuery);
-        List list = query.list();
+    public boolean save(User object) {
+        session = SessionFactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(object);
+        transaction.commit();
         session.close();
-        return list;
+        return true;
     }
 
     @Override
-    public String save(User dto) {
-        return (String) session.save(dto);
+    public void update(User object) {
+
     }
 
     @Override
-    public void update(User dto) throws Exception {
-        session.update(dto);
+    public User get(String s) {
+        return null;
     }
 
     @Override
-    public void delete(User dto) throws Exception {
-        session.delete(dto);
-    }
+    public void delete(User object) {
 
-
-    @Override
-    public User getObject(String id) throws Exception {
-        return session.get(User.class,id);
     }
 
     @Override
     public void setSession(Session session) {
-        this.session=session;
+
+    }
+
+    @Override
+    public List<String> geIds() throws Exception {
+        return null;
     }
 }
 //    private Session session;
