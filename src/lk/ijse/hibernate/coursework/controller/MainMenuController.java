@@ -19,7 +19,7 @@ public class MainMenuController {
     public AnchorPane MyPane;
     public JFXButton btn;
 
-    private void setNode(Node node) {
+    public void setNode(Node node) {
         MyPane.getChildren().clear();
         MyPane.getChildren().add(node);
     }

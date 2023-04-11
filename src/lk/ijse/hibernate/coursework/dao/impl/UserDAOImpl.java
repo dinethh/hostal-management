@@ -27,10 +27,13 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public boolean save(User object) {
         session = SessionFactoryConfiguration.getInstance().getSession();
-        transaction = session.beginTransaction();
-        session.save(object);
-        transaction.commit();
-        session.close();
+            transaction = session.beginTransaction();
+            session.save(object);
+            transaction.commit();
+            session.close();
+//        if (transaction !=null){
+//            transaction.rollback();
+//        }
         return true;
     }
 
@@ -41,6 +44,10 @@ public class UserDAOImpl implements UserDAO {
         session.update(entity);
         transaction.commit();
         session.close();
+
+//        if (transaction !=null){
+//            transaction.rollback();
+//        }
         return true;
 
     }
@@ -53,6 +60,9 @@ public class UserDAOImpl implements UserDAO {
         user = session.get(User.class, id);
         session.delete(user);
         transaction.commit();
+//        if (transaction !=null){
+//            transaction.rollback();
+//        }
         return true;
 
     }
