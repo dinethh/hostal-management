@@ -48,7 +48,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="txtUserID" GridPane.columnIndex="1" />
+            <JFXTextField fx:id="txtUserID" onAction="#onActionSearchUser" GridPane.columnIndex="1" />
             <JFXTextField fx:id="txtPassword" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <JFXTextField fx:id="txtUserName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
@@ -68,12 +68,12 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton prefHeight="30.0" prefWidth="138.0" style="-fx-background-color: #E74C3C; -fx-background-radius: 5;" text="Remove User" textFill="WHITE" GridPane.columnIndex="2">
+            <JFXButton onAction="#onActionDeleteUser" prefHeight="30.0" prefWidth="138.0" style="-fx-background-color: #E74C3C; -fx-background-radius: 5;" text="Remove User" textFill="WHITE" GridPane.columnIndex="2">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton prefHeight="30.0" prefWidth="118.0" style="-fx-background-color: #2ECC71; -fx-background-radius: 5;" text="Update User" textFill="WHITE" GridPane.columnIndex="1">
+            <JFXButton onAction="#onActionUpdateUser" prefHeight="30.0" prefWidth="118.0" style="-fx-background-color: #2ECC71; -fx-background-radius: 5;" text="Update User" textFill="WHITE" GridPane.columnIndex="1">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>

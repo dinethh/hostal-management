@@ -5,11 +5,9 @@ import lk.ijse.hibernate.coursework.dao.DAOFactory;
 import lk.ijse.hibernate.coursework.dao.custom.UserDAO;
 import lk.ijse.hibernate.coursework.dto.UserDTO;
 import lk.ijse.hibernate.coursework.entity.User;
-import lk.ijse.hibernate.coursework.util.SessionFactoryConfiguration;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Author:Dineth Panditha
@@ -24,7 +22,7 @@ public class UserBOImpl implements UserBO {
 
 
     @Override
-    public List<UserDTO> getAllUser() throws Exception {
+    public ArrayList<UserDTO> getAllUser() throws Exception {
         return null;
     }
 
@@ -32,16 +30,30 @@ public class UserBOImpl implements UserBO {
     public boolean saveUser(UserDTO userDTO) throws Exception {
         return userDAO.save(new User(userDTO.getUserId(), userDTO.getUser_name(), userDTO.getPassword()));
 
-
     }
 
     @Override
     public boolean updateUser(UserDTO userDTO) throws Exception {
-        return false;
+        return userDAO.update(new User(
+                userDTO.getUserId(),
+                userDTO.getUser_name(),
+                userDTO.getPassword()
+        ));
     }
 
     @Override
-    public boolean deleteUser(UserDTO userDTO) throws Exception {
-        return false;
+    public boolean deleteUser(String id) throws Exception {
+        return userDAO.delete(id);
     }
+
+    @Override
+    public UserDTO searchUser(String id) throws Exception {
+        User user = userDAO.search(id);
+        return new UserDTO(
+                user.getUserId(),
+                user.getUser_name(),
+                user.getPassword());
+    }
+
+
 }

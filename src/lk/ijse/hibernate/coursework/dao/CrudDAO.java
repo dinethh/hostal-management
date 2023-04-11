@@ -1,17 +1,15 @@
 package lk.ijse.hibernate.coursework.dao;
 
-public interface CrudDAO<T, ID> {
-    //    List<T> getAll() throws Exception;
-//   ID  save(T dto) throws Exception;
-//    void update(T dto) throws Exception;
-//    void delete(T dto) throws Exception;
-//    ID generateNewID() throws Exception;
-//    T getObject(ID id) throws Exception;
-    boolean save(T object);
+import java.util.ArrayList;
 
-    void update(T object);
+public interface CrudDAO<T> extends SuperDAO{
+    ArrayList<T> getAll();
 
-    T get(ID id);
+    boolean save(T entity);
 
-    void delete(T object);
+    boolean update(T entity);
+
+    boolean delete(String id);
+
+    T search(String id);
 }
