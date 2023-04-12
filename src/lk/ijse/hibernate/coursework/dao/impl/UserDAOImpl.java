@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 
 public class UserDAOImpl implements UserDAO {
-    Transaction transaction = null;
+   private Transaction transaction = null;
     private Session session;
 
     @Override

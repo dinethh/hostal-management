@@ -32,7 +32,7 @@ public class UserFormController {
         String userName = txtUserName.getText();
 
         try {
-            if (userBO.saveUser(new UserDTO(userID, password, userName))) {
+            if (userBO.saveUser(new UserDTO(userID, userName, password))) {
                 Clear();
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved..!").show();
             } else {
@@ -71,7 +71,7 @@ public class UserFormController {
                 new Alert(Alert.AlertType.CONFIRMATION, "Ok").show();
 
                 Clear();
-            }else {
+            } else {
                 new Alert(Alert.AlertType.ERROR, "Try Again..!").show();
             }
         } catch (Exception e) {

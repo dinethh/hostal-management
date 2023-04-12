@@ -2,9 +2,6 @@ package lk.ijse.hibernate.coursework.dto;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
 /**
  * Author:Dineth Panditha
  * Date  :3/31/2023
@@ -17,7 +14,6 @@ import javax.persistence.Id;
 @Getter
 @Setter
 @ToString
-
 public class UserDTO {
     private String userId;
     private String user_name;

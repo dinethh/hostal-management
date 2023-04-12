@@ -11,7 +11,6 @@ import java.util.List;
  * Name  :ORM-CourseWork
  */
 
-
 @Entity
 public class Room {
     @Id
@@ -24,13 +23,13 @@ public class Room {
     @Column(name = "qty")
     private int qty;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "room")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "room", fetch = FetchType.EAGER)
     private List<Reservation> reservationList = new ArrayList<>();
 
     public Room() {
     }
 
-    public Room(String room_type_id, String type, double key_money, int qty, List<Reservation> reservationList) {
+    public Room(String room_type_id, String type, double key_money, int qty) {
         this.room_type_id = room_type_id;
         this.type = type;
         this.key_money = key_money;
