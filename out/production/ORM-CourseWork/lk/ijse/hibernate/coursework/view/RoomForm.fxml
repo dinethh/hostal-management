@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="553.0" prefWidth="692.0" style="-fx-background-color: #cfd8dc;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.coursework.controller.RoomFormController">
+<AnchorPane prefHeight="553.0" prefWidth="692.0" style="-fx-background-color: #cfd8dc;" stylesheets="@style/roomForm.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.coursework.controller.RoomFormController">
    <children>
       <GridPane layoutX="35.0" layoutY="57.0" prefHeight="154.0" prefWidth="267.0">
          <columnConstraints>
@@ -81,7 +81,7 @@
             </JFXButton>
          </children>
       </GridPane>
-      <TableView fx:id="tblRoom" layoutX="32.0" layoutY="329.0" prefHeight="200.0" prefWidth="576.0">
+      <TableView fx:id="tblRoom" layoutX="32.0" layoutY="329.0" prefHeight="200.0" prefWidth="576.0" style="-fx-background-color: #cfd8dc; -fx-padding: 5px;">
         <columns>
           <TableColumn fx:id="colRoomID" prefWidth="132.7777862548828" text="Room ID " />
           <TableColumn fx:id="colType" prefWidth="110.22221374511719" text="Type" />

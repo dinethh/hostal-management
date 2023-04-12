@@ -68,14 +68,14 @@
             <JFXTextField fx:id="txtDOB" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
-      <TableView layoutX="26.0" layoutY="290.0" prefHeight="256.0" prefWidth="638.0">
+      <TableView fx:id="tblStudent" layoutX="26.0" layoutY="290.0" prefHeight="256.0" prefWidth="638.0">
         <columns>
-          <TableColumn prefWidth="112.33333587646484" text="Student ID" />
-          <TableColumn prefWidth="108.66666412353516" text="Name" />
-            <TableColumn prefWidth="101.77778625488281" text="Address" />
-            <TableColumn prefWidth="110.99998474121094" text="Contact" />
-            <TableColumn prefWidth="95.44439697265625" text="DOB" />
-            <TableColumn prefWidth="134.00003051757812" text="Gender" />
+          <TableColumn fx:id="colStudentID" prefWidth="112.33333587646484" text="Student ID" />
+          <TableColumn fx:id="colName" prefWidth="108.66666412353516" text="Name" />
+            <TableColumn fx:id="colAddress" prefWidth="101.77778625488281" text="Address" />
+            <TableColumn fx:id="colContact" prefWidth="110.99998474121094" text="Contact" />
+            <TableColumn fx:id="colDOB" prefWidth="95.44439697265625" text="DOB" />
+            <TableColumn fx:id="colGender" prefWidth="134.00003051757812" text="Gender" />
         </columns>
       </TableView>
       <GridPane layoutX="37.0" layoutY="231.0" prefHeight="51.0" prefWidth="304.0">

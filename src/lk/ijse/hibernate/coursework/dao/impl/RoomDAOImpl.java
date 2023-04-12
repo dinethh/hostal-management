@@ -55,9 +55,9 @@ public class RoomDAOImpl implements RoomDAO {
     public boolean delete(String id) {
         session = SessionFactoryConfiguration.getInstance().getSession();
         transaction = session.beginTransaction();
-        User user = null;
-        user = session.get(User.class, id);
-        session.delete(user);
+        Room room = null;
+        room = session.get(Room.class, id);
+        session.delete(room);
         transaction.commit();
 
         return true;

@@ -1,0 +1,16 @@
+/**
+ * Author:Dineth Panditha
+ * Date  :4/12/2023
+ * Time  :10:46 PM
+ * Name  :ORM-CourseWork
+ */
+
+*{
+    -fx-font-family: Ubuntu;
+}
+#imgHome:hover{
+    -fx-effect: dropshadow(gaussian,#6495ED,20,0.0,0,0);
+}
+.mainFxmlClass {
+    -fx-background-color: red;
+}

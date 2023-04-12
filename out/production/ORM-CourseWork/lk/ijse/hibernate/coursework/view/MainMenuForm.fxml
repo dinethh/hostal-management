@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
@@ -11,22 +12,22 @@
    <children>
       <AnchorPane prefHeight="608.0" prefWidth="167.0" style="-fx-background-color: #eceff1;">
          <children>
-            <ImageView fitHeight="55.0" fitWidth="57.0" layoutX="57.0" layoutY="27.0" onMouseClicked="#onClickUser" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="imgHome" fitHeight="55.0" fitWidth="57.0" layoutX="57.0" layoutY="27.0" onMouseClicked="#onClickUser" pickOnBounds="true" preserveRatio="true" styleClass="style\mainForm.css">
                <image>
                   <Image url="@assests/user.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="55.0" fitWidth="57.0" layoutX="56.0" layoutY="136.0" onMouseClicked="#OnClickStudent" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="imgHome" fitHeight="55.0" fitWidth="57.0" layoutX="56.0" layoutY="136.0" onMouseClicked="#OnClickStudent" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assests/student.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="55.0" fitWidth="57.0" layoutX="57.0" layoutY="242.0" onMouseClicked="#OnClickRoom" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="imgHome" fitHeight="55.0" fitWidth="57.0" layoutX="57.0" layoutY="242.0" onMouseClicked="#OnClickRoom" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assests/bed.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="55.0" fitWidth="57.0" layoutX="56.0" layoutY="344.0" onMouseClicked="#OnClickReservation" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="imgHome" fitHeight="55.0" fitWidth="57.0" layoutX="56.0" layoutY="344.0" onMouseClicked="#OnClickReservation" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assests/resere.png" />
                </image>
@@ -55,6 +56,10 @@
             <Separator layoutX="2.0" layoutY="222.0" prefHeight="4.0" prefWidth="160.0" />
             <Separator layoutX="2.0" layoutY="330.0" prefHeight="4.0" prefWidth="160.0" />
          </children>
+         <stylesheets>
+            <URL value="@style/mainForm.css" />
+            <URL value="@style/roomForm.css" />
+         </stylesheets>
       </AnchorPane>
       <AnchorPane fx:id="MyPane" layoutX="185.0" layoutY="44.0" prefHeight="553.0" prefWidth="692.0" />
       <Label layoutX="435.0" layoutY="9.0" text="The D24 Hostel">
