@@ -72,6 +72,10 @@ public class ReservationFormController implements Initializable {
         cmbRoomTypeID.setItems (room);
 
     }
+    private void setStatus() {
+        String[] gender = {"Paid","Pending"};
+        cmbStatus.getItems().addAll(gender);
+    }
 
 //    public StudentDTO getStudnetDetail(){
 //        String stId=cmbStudentID.getValue ().toString ();
@@ -85,5 +89,6 @@ public class ReservationFormController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     setIds();
+    setStatus();
     }
 }
