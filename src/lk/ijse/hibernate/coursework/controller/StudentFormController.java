@@ -72,6 +72,7 @@ public class StudentFormController implements Initializable {
         try {
             if (studentBO.saveStudent(new StudentDTO(studentID, name, address, contact, date, gender))) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved..!").show();
+               setDataTable();
                 Clear();
             } else {
                 new Alert(Alert.AlertType.WARNING, "Try Again..!").show();
@@ -94,6 +95,7 @@ public class StudentFormController implements Initializable {
         try {
             if (studentBO.updateStudent(student)) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Ok").show();
+                setDataTable();
                 Clear();
             } else {
                 new Alert(Alert.AlertType.ERROR, "Try Again..!").show();
@@ -110,6 +112,7 @@ public class StudentFormController implements Initializable {
             try {
                 if (studentBO.deleteStudent(txtStudentID.getText())) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Ok").show();
+                    setDataTable();
                     Clear();
                 }
             } catch (Exception e) {

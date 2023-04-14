@@ -9,8 +9,11 @@ import lk.ijse.hibernate.coursework.dto.ReservationDTO;
 import lk.ijse.hibernate.coursework.dto.RoomDTO;
 import lk.ijse.hibernate.coursework.dto.StudentDTO;
 import lk.ijse.hibernate.coursework.entity.Reservation;
+import lk.ijse.hibernate.coursework.entity.Room;
+import lk.ijse.hibernate.coursework.entity.Student;
 import lk.ijse.hibernate.coursework.util.SessionFactoryConfiguration;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.util.List;
 
@@ -23,7 +26,6 @@ import java.util.List;
 
 public class ReservationBOImpl implements ReservationBO {
     ReservationDAO reservationDAO = (ReservationDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.RESERVATION);
-
     RoomDAO roomDAO = (RoomDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ROOM);
     StudentDAO studentDAO = (StudentDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
 
@@ -66,13 +68,41 @@ public class ReservationBOImpl implements ReservationBO {
 
     @Override
     public boolean saveReservation(ReservationDTO dto) {
-       return reservationDAO.save(new Reservation(
-               dto.getResId(),
-               dto.getDate(),
-               dto.getStatus(),
-               dto.getStudent_id(),
-               dto.getRoom_type_id()
-       ));
+//        session=SessionFactoryConfiguration.getInstance ().getSession ();
+//        Transaction transaction=session.beginTransaction ();
+//
+//        try{
+//            reservationDAO.setSession (session);
+//            reservationDAO.save (
+//                    new Reservation (
+//                            dto.getResId(),
+//                            dto.getDate (),
+//                            new Student (
+//                                    dto.getStudentDTO ().getStudent_id(),
+//                                    dto.getStudentDTO ().getName(),
+//                                    dto.getStudentDTO ().getAddress (),
+//                                    dto.getStudentDTO ().getContact_no(),
+//                                    dto.getStudentDTO ().getDob (),
+//                                    dto.getStudentDTO ().getGender ()
+//                            ),
+//                            new Room (
+//                                    dto.getRoomDTO ().getRoom_type_id(),
+//                                    dto.getRoomDTO ().getType (),
+//                                    dto.getRoomDTO ().getKey_money(),
+//                                    dto.getRoomDTO ().getQty ()
+//                            ),
+//                            dto.getStatus ()
+//                    ));
+//            transaction.commit();
+//            session.close();
+//            return true;
+//
+//        }catch (Exception e){
+//            transaction.rollback ();
+//            e.printStackTrace ();
+//            return false;
+//        }
+        return false;
     }
 
     @Override

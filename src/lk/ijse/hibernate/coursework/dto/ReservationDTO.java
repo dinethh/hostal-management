@@ -18,10 +18,10 @@ public class ReservationDTO {
     private StudentDTO studentDTO;
     private RoomDTO roomDTO;
 
-    public ReservationDTO() {
+    public ReservationDTO(String resID, Date sqlDate, StudentDTO studentDTO, RoomDTO roomDTO, String status) {
     }
 
-    public ReservationDTO(String resId, Date date, String student_id, String room_type_id, String status) {
+    public ReservationDTO(String resId, Date date, String student_id, String room_type_id, String status, StudentDTO studentDTO, RoomDTO roomDTO) {
         this.resId = resId;
         this.date = date;
         this.student_id = student_id;

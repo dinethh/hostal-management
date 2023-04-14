@@ -40,10 +40,6 @@ public class Reservation {
         this.room = room;
     }
 
-    public Reservation(String resId, Date date, String status, String student_id, String room_type_id) {
-
-    }
-
     public String getResId() {
         return resId;
     }

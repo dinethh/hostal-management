@@ -29,12 +29,8 @@ public class ReservationDAOImpl implements ReservationDAO {
 
     @Override
     public boolean save(Reservation entity) {
-        session = SessionFactoryConfiguration.getInstance().getSession();
-        transaction = session.beginTransaction();
-        session.save(entity);
-        transaction.commit();
-        session.close();
-        return true;
+       return false;
+
     }
 
     @Override

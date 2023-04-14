@@ -35,6 +35,8 @@ public class RoomFormController implements Initializable {
     public TableColumn colType;
     public TableColumn colKeyMoney;
     public TableColumn colQTY;
+    public JFXComboBox cmbRoomTypeID;
+    public TableColumn colAvailableQTY;
 
     RoomBO roomBO = (RoomBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ROOM);
 
@@ -64,6 +66,7 @@ public class RoomFormController implements Initializable {
         try {
             if (roomBO.saveRoom(new RoomDTO(roomID, type, keyMoney, qty))) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved..!").show();
+                setDataTable();
                 Clear();
             } else {
                 new Alert(Alert.AlertType.WARNING, "Try Again..!").show();
@@ -83,6 +86,7 @@ public class RoomFormController implements Initializable {
         try {
             if (roomBO.updateRoom(room)) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Ok").show();
+                setDataTable();
                 Clear();
             } else {
                 new Alert(Alert.AlertType.ERROR, "Try Again..!").show();
@@ -99,6 +103,7 @@ public class RoomFormController implements Initializable {
             try {
                 if (roomBO.deleteRoom(txtRoomID.getText())) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Ok").show();
+                    setDataTable();
                     Clear();
                 }
             } catch (Exception e) {
@@ -139,6 +144,7 @@ public class RoomFormController implements Initializable {
         cmbRoomType.getItems().addAll(gender);
     }
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setType();
@@ -151,5 +157,21 @@ public class RoomFormController implements Initializable {
         txtQTY.clear();
         txtKeyMoney.clear();
         cmbRoomType.setValue("");
+    }
+
+    public void onActioncmbRoomType(ActionEvent actionEvent) {
+        String tid = String.valueOf(cmbRoomType.getValue());
+        if (tid.equals("Non-AC")) {
+            txtKeyMoney.setText("3100.00");
+        }
+        if (tid.equals("Non-AC / Food")) {
+            txtKeyMoney.setText("6500.00");
+        }
+        if (tid.equals("AC")) {
+            txtKeyMoney.setText("8900.00");
+        }
+        if (tid.equals("AC / Food ")) {
+            txtKeyMoney.setText("16000.00");
+        }
     }
 }
