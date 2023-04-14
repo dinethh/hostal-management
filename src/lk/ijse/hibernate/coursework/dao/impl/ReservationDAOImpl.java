@@ -1,10 +1,15 @@
 package lk.ijse.hibernate.coursework.dao.impl;
 
+import lk.ijse.hibernate.coursework.dao.custom.ReservationDAO;
 import lk.ijse.hibernate.coursework.dao.custom.StudentDAO;
+import lk.ijse.hibernate.coursework.entity.Reservation;
 import lk.ijse.hibernate.coursework.entity.Student;
+import lk.ijse.hibernate.coursework.util.SessionFactoryConfiguration;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Author:Dineth Panditha
@@ -13,20 +18,27 @@ import java.util.ArrayList;
  * Name  :ORM-CourseWork
  */
 
-public class ReservationDAOImpl implements StudentDAO {
+public class ReservationDAOImpl implements ReservationDAO {
+    private Transaction transaction = null;
+    private Session session;
 
     @Override
-    public ArrayList<Student> getAll() {
+    public List<Reservation> getAll() {
         return null;
     }
 
     @Override
-    public boolean save(Student entity) {
-        return false;
+    public boolean save(Reservation entity) {
+        session = SessionFactoryConfiguration.getInstance().getSession();
+        transaction = session.beginTransaction();
+        session.save(entity);
+        transaction.commit();
+        session.close();
+        return true;
     }
 
     @Override
-    public boolean update(Student entity) {
+    public boolean update(Reservation entity) {
         return false;
     }
 
@@ -36,12 +48,12 @@ public class ReservationDAOImpl implements StudentDAO {
     }
 
     @Override
-    public Student search(String id) {
+    public Reservation search(String id) {
         return null;
     }
 
     @Override
     public void setSession(Session session) {
-
+        this.session = session;
     }
 }

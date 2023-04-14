@@ -28,6 +28,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
             <Label text="Res ID">
@@ -35,25 +36,31 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label text="Student ID" GridPane.rowIndex="1">
+            <Label text="Student ID" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label text="Room Type" GridPane.rowIndex="2">
+            <Label text="Room Type ID" GridPane.rowIndex="3">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label text="Status" GridPane.rowIndex="3">
+            <Label text="Status" GridPane.rowIndex="4">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <JFXComboBox prefHeight="25.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <JFXTextField GridPane.columnIndex="1" />
-            <JFXComboBox prefHeight="25.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <JFXComboBox prefHeight="25.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <JFXComboBox fx:id="cmbStatus" prefHeight="25.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <JFXTextField fx:id="txtResID" onAction="#SearchOnAction" GridPane.columnIndex="1" />
+            <JFXComboBox fx:id="cmbRoomTypeID" prefHeight="25.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <JFXComboBox fx:id="cmbStudentID" prefHeight="25.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Date" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtDate" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <GridPane layoutX="47.0" layoutY="241.0" prefHeight="51.0" prefWidth="304.0">
@@ -66,17 +73,17 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <JFXButton prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #3498DB; -fx-background-radius: 5;" text="Save" textFill="WHITE">
+            <JFXButton onAction="#SavaOnAction" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #3498DB; -fx-background-radius: 5;" text="Save" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #2ECC71; -fx-background-radius: 5;" text="Update" textFill="WHITE" GridPane.columnIndex="1">
+            <JFXButton onAction="#UpdateOnAction" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #2ECC71; -fx-background-radius: 5;" text="Update" textFill="WHITE" GridPane.columnIndex="1">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #E74C3C; -fx-background-radius: 5;" text="Delete" textFill="WHITE" GridPane.columnIndex="2">
+            <JFXButton onAction="#DeleteOnAction" prefHeight="30.0" prefWidth="87.0" style="-fx-background-color: #E74C3C; -fx-background-radius: 5;" text="Remove" textFill="WHITE" GridPane.columnIndex="2">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>

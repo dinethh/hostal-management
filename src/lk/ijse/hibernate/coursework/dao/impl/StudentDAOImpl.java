@@ -5,6 +5,7 @@ import lk.ijse.hibernate.coursework.entity.Student;
 import lk.ijse.hibernate.coursework.util.SessionFactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -76,5 +77,14 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public void setSession(Session session) {
         this.session = session;
+    }
+
+    @Override
+    public List<String> getStIds() {
+        String hql = "SELECT id from Student ";
+        Query<String> query=session.createQuery (hql);
+        List<String> results = query.list();
+        session.close();
+        return results;
     }
 }
