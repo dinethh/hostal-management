@@ -4,11 +4,9 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.hibernate.coursework.bo.BOFactory;
 import lk.ijse.hibernate.coursework.bo.custom.RoomBO;
 import lk.ijse.hibernate.coursework.dto.RoomDTO;
@@ -37,6 +35,7 @@ public class RoomFormController implements Initializable {
     public TableColumn colQTY;
     public JFXComboBox cmbRoomTypeID;
     public TableColumn colAvailableQTY;
+    public Label lblTotal;
 
     RoomBO roomBO = (RoomBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ROOM);
 
@@ -174,4 +173,12 @@ public class RoomFormController implements Initializable {
             txtKeyMoney.setText("16000.00");
         }
     }
+
+    public void onActionCalculateTotal(KeyEvent keyEvent) {
+        double getqty = Double.parseDouble(txtQTY.getText());
+        double keyMoney = Double.parseDouble(txtKeyMoney.getText());
+        double result = getqty * keyMoney;
+        txtKeyMoney.setText(String.valueOf(result));
+    }
+
 }
