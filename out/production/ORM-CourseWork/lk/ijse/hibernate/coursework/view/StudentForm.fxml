@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -65,7 +66,7 @@
             <JFXTextField fx:id="txtName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <JFXTextField fx:id="txtAddress" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <JFXTextField fx:id="txtContact" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <JFXTextField fx:id="txtDOB" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <JFXDatePicker fx:id="txtDOB" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
       <TableView fx:id="tblStudent" layoutX="26.0" layoutY="290.0" prefHeight="256.0" prefWidth="638.0">

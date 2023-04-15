@@ -15,6 +15,7 @@ import lk.ijse.hibernate.coursework.bo.custom.StudentBO;
 import lk.ijse.hibernate.coursework.dto.StudentDTO;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 /**
@@ -25,13 +26,13 @@ import java.util.ResourceBundle;
  */
 
 public class StudentFormController implements Initializable {
-    public JFXDatePicker datePickerDOB;
+
     public JFXComboBox cmbGender;
     public JFXTextField txtStudentID;
     public JFXTextField txtName;
     public JFXTextField txtAddress;
     public JFXTextField txtContact;
-    public JFXTextField txtDOB;
+
 
     public TableView tblStudent;
     public TableColumn colStudentID;
@@ -40,6 +41,7 @@ public class StudentFormController implements Initializable {
     public TableColumn colContact;
     public TableColumn colDOB;
     public TableColumn colGender;
+    public JFXDatePicker txtDOB;
 
     StudentBO studentBO = (StudentBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.STUDENT);
 
@@ -66,13 +68,13 @@ public class StudentFormController implements Initializable {
         String name = txtName.getText();
         String address = txtAddress.getText();
         String contact = txtContact.getText();
-        String date = txtDOB.getText();
+        String date = String.valueOf(txtDOB.getValue());
         String gender = String.valueOf(cmbGender.getValue());
 
         try {
             if (studentBO.saveStudent(new StudentDTO(studentID, name, address, contact, date, gender))) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved..!").show();
-               setDataTable();
+                setDataTable();
                 Clear();
             } else {
                 new Alert(Alert.AlertType.WARNING, "Try Again..!").show();
@@ -89,7 +91,7 @@ public class StudentFormController implements Initializable {
                 txtName.getText(),
                 txtAddress.getText(),
                 txtContact.getText(),
-                txtDOB.getText(),
+                String.valueOf(txtDOB.getValue()),
                 String.valueOf(cmbGender.getValue()));
 
         try {
@@ -138,7 +140,7 @@ public class StudentFormController implements Initializable {
         txtName.setText(student.getName());
         txtAddress.setText(student.getAddress());
         txtContact.setText(student.getContact_no());
-        txtDOB.setText(student.getDob());
+        txtDOB.setValue(LocalDate.parse(student.getDob()));
         cmbGender.setValue(student.getGender());
     }
 
@@ -170,5 +172,6 @@ public class StudentFormController implements Initializable {
         txtContact.clear();
         txtName.clear();
         cmbGender.setValue("");
+//        txtDOB.resetValidation();
     }
 }
