@@ -99,8 +99,7 @@
                 <TableColumn prefWidth="110.0" text="Date" />
                 <TableColumn prefWidth="137.6666259765625" text="Student ID" />
                 <TableColumn prefWidth="121.6666259765625" text="Room Type" />
-                <TableColumn prefWidth="98.0" text="Status" />
-            <TableColumn fx:id="colQTYrec" prefWidth="61.33331298828125" text="QTY" />
+                <TableColumn prefWidth="157.33331298828125" text="Status" />
             </columns>
         </TableView>
         <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="653.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
