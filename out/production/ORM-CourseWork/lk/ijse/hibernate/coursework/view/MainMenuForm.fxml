@@ -5,11 +5,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.*?>
 <?import java.net.URL?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="606.0" prefWidth="890.0"
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="560.0" prefWidth="890.0"
             style="-fx-background-color: #cfd8dc;" xmlns="http://javafx.com/javafx/8.0.171"
             fx:controller="lk.ijse.hibernate.coursework.controller.MainMenuController">
     <children>
-        <AnchorPane prefHeight="608.0" prefWidth="167.0" style="-fx-background-color: #eceff1;">
+        <AnchorPane prefHeight="564.0" prefWidth="167.0" style="-fx-background-color: #eceff1;">
             <children>
                 <ImageView id="imgHome" fitHeight="55.0" fitWidth="57.0" layoutX="57.0" layoutY="27.0"
                            onMouseClicked="#onClickUser" pickOnBounds="true" preserveRatio="true"
@@ -51,7 +51,7 @@
                         <Font name="System Bold" size="14.0"/>
                     </font>
                 </Label>
-                <Label layoutX="46.0" layoutY="396.0" text="Reservation" textFill="#775e5e">
+                <Label layoutX="48.0" layoutY="399.0" text="Reservation" textFill="#775e5e">
                     <font>
                         <Font name="System Bold" size="14.0"/>
                     </font>
@@ -59,17 +59,24 @@
                 <Separator layoutX="2.0" layoutY="114.0" prefHeight="4.0" prefWidth="160.0"/>
                 <Separator layoutX="2.0" layoutY="222.0" prefHeight="4.0" prefWidth="160.0"/>
                 <Separator layoutX="2.0" layoutY="330.0" prefHeight="4.0" prefWidth="160.0"/>
+                <ImageView id="imgHome" fitHeight="55.0" fitWidth="57.0" layoutX="55.0" layoutY="458.0"
+                           pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@assests/setings.png"/>
+                    </image>
+                </ImageView>
+                <Label layoutX="57.0" layoutY="516.0" text="Settings" textFill="#775e5e">
+                    <font>
+                        <Font name="System Bold" size="14.0"/>
+                    </font>
+                </Label>
+                <Separator layoutX="5.0" layoutY="444.0" prefHeight="4.0" prefWidth="160.0"/>
             </children>
             <stylesheets>
                 <URL value="@style/mainForm.css"/>
                 <URL value="@style/roomForm.css"/>
             </stylesheets>
         </AnchorPane>
-        <AnchorPane fx:id="MyPane" layoutX="185.0" layoutY="44.0" prefHeight="553.0" prefWidth="692.0"/>
-        <Label layoutX="435.0" layoutY="9.0" text="The D24 Hostel">
-            <font>
-                <Font name="System Bold" size="23.0"/>
-            </font>
-        </Label>
+        <AnchorPane fx:id="MyPane" layoutX="185.0" layoutY="5.0" prefHeight="561.0" prefWidth="692.0"/>
     </children>
 </AnchorPane>

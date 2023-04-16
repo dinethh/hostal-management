@@ -44,7 +44,7 @@
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-                <Label text="Room Type ID" GridPane.rowIndex="4">
+                <Label text="Room Type" GridPane.rowIndex="4">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
@@ -63,7 +63,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="txtQtyfromREC" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <JFXTextField fx:id="txtQty" GridPane.columnIndex="1" GridPane.rowIndex="8" />
             </children>
         </GridPane>
         <GridPane layoutX="47.0" layoutY="241.0" prefHeight="51.0" prefWidth="304.0">
@@ -93,13 +93,13 @@
                 </JFXButton>
             </children>
         </GridPane>
-        <TableView layoutX="46.0" layoutY="328.0" prefHeight="200.0" prefWidth="605.0">
+        <TableView fx:id="tblReservation" layoutX="46.0" layoutY="328.0" prefHeight="200.0" prefWidth="605.0">
             <columns>
-                <TableColumn prefWidth="75.66665649414062" text="Res ID" />
-                <TableColumn prefWidth="110.0" text="Date" />
-                <TableColumn prefWidth="137.6666259765625" text="Student ID" />
-                <TableColumn prefWidth="121.6666259765625" text="Room Type" />
-                <TableColumn prefWidth="157.33331298828125" text="Status" />
+                <TableColumn fx:id="colResID" prefWidth="75.66665649414062" text="Res ID" />
+                <TableColumn fx:id="colDate" prefWidth="110.0" text="Date" />
+                <TableColumn fx:id="colStudentID" prefWidth="137.6666259765625" text="Student ID" />
+                <TableColumn fx:id="colRoomType" prefWidth="121.6666259765625" text="Room Type" />
+                <TableColumn fx:id="colStatus" prefWidth="157.33331298828125" text="Status" />
             </columns>
         </TableView>
         <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="653.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">

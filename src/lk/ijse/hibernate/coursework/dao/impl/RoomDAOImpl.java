@@ -74,6 +74,11 @@ public class RoomDAOImpl implements RoomDAO {
         return room;
     }
 
+    @Override
+    public Room getObject(String id) {
+        return null;
+    }
+
 
     @Override
     public void setSession(Session session) {
@@ -88,5 +93,14 @@ public class RoomDAOImpl implements RoomDAO {
         session.close();
         return results;
     }
+
+//    @Override
+//    public List<String> roomTypes() {
+//        String hql = "SELECT type from Room ";
+//        Query<String> query=session.createQuery (hql);
+//        List<String> results = query.list();
+//        session.close();
+//        return results;
+//    }
 }
 

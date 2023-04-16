@@ -73,6 +73,11 @@ public class StudentDAOImpl implements StudentDAO {
         return student;
     }
 
+    @Override
+    public Student getObject(String id) {
+        return null;
+    }
+
 
     @Override
     public void setSession(Session session) {

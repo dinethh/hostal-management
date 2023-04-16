@@ -12,4 +12,5 @@ public interface CrudDAO<T> extends SuperDAO {
     boolean delete(String id);
 
     T search(String id);
+    T getObject(String id);
 }

@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface RoomDAO extends CrudDAO<Room> {
     List<String> roomIds();
+
 }

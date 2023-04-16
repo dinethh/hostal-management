@@ -1,14 +1,11 @@
 package lk.ijse.hibernate.coursework.dao.impl;
 
 import lk.ijse.hibernate.coursework.dao.custom.ReservationDAO;
-import lk.ijse.hibernate.coursework.dao.custom.StudentDAO;
 import lk.ijse.hibernate.coursework.entity.Reservation;
-import lk.ijse.hibernate.coursework.entity.Student;
 import lk.ijse.hibernate.coursework.util.SessionFactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,17 +21,35 @@ public class ReservationDAOImpl implements ReservationDAO {
 
     @Override
     public List<Reservation> getAll() {
-        return null;
+
+        List<Reservation> reservation = null;
+        session = SessionFactoryConfiguration.getInstance().getSession();
+        transaction = session.beginTransaction();
+        reservation = session.createQuery("FROM Reservation ").list();
+        transaction.commit();
+        return reservation;
     }
 
     @Override
     public boolean save(Reservation entity) {
-       return false;
+        session = SessionFactoryConfiguration.getInstance().getSession();
+        transaction = session.beginTransaction();
+        session.save(entity);
+        transaction.commit();
+        session.close();
+        return true;
 
     }
 
     @Override
     public boolean update(Reservation entity) {
+
+//        session = SessionFactoryConfiguration.getInstance().getSession();
+//        transaction = session.beginTransaction();
+//        session.update(entity);
+//        transaction.commit();
+//        session.close();
+//        return true;
         return false;
     }
 
@@ -45,6 +60,11 @@ public class ReservationDAOImpl implements ReservationDAO {
 
     @Override
     public Reservation search(String id) {
+        return null;
+    }
+
+    @Override
+    public Reservation getObject(String id) {
         return null;
     }
 

@@ -159,26 +159,26 @@ public class RoomFormController implements Initializable {
     }
 
     public void onActioncmbRoomType(ActionEvent actionEvent) {
-        String tid = String.valueOf(cmbRoomType.getValue());
-        if (tid.equals("Non-AC")) {
-            txtKeyMoney.setText("3100.00");
-        }
-        if (tid.equals("Non-AC / Food")) {
-            txtKeyMoney.setText("6500.00");
-        }
-        if (tid.equals("AC")) {
-            txtKeyMoney.setText("8900.00");
-        }
-        if (tid.equals("AC / Food ")) {
-            txtKeyMoney.setText("16000.00");
-        }
+//        String tid = String.valueOf(cmbRoomType.getValue());
+//        if (tid.equals("Non-AC")) {
+//            txtKeyMoney.setText("3100.00");
+//        }
+//        if (tid.equals("Non-AC / Food")) {
+//            txtKeyMoney.setText("6500.00");
+//        }
+//        if (tid.equals("AC")) {
+//            txtKeyMoney.setText("8900.00");
+//        }
+//        if (tid.equals("AC / Food ")) {
+//            txtKeyMoney.setText("16000.00");
+//        }
     }
 
     public void onActionCalculateTotal(KeyEvent keyEvent) {
-        double getqty = Double.parseDouble(txtQTY.getText());
-        double keyMoney = Double.parseDouble(txtKeyMoney.getText());
-        double result = getqty * keyMoney;
-        txtKeyMoney.setText(String.valueOf(result));
+//        double getqty = Double.parseDouble(txtQTY.getText());
+//        double keyMoney = Double.parseDouble(txtKeyMoney.getText());
+//        double result = getqty * keyMoney;
+//        txtKeyMoney.setText(String.valueOf(result));
     }
 
 }

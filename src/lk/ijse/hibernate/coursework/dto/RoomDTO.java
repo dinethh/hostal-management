@@ -2,6 +2,8 @@ package lk.ijse.hibernate.coursework.dto;
 
 import lombok.*;
 
+import java.sql.Date;
+
 /**
  * Author:Dineth Panditha
  * Date  :4/12/2023

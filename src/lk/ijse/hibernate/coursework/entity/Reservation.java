@@ -16,10 +16,8 @@ public class Reservation {
     @Id
     @Column(name = "resId", length = 10)
     private String resId;
-    @Column(name = "data")
+    @Column(name = "date")
     private Date date;
-    @Column(name = "status")
-    private String status;
 
     @ManyToOne
     @JoinColumn(name = "student_id")
@@ -29,15 +27,23 @@ public class Reservation {
     @JoinColumn(name = "room_type_id")
     private Room room;
 
+    @Column(name = "status")
+    private String status;
+
+
     public Reservation() {
     }
 
-    public Reservation(String resId, Date date, String status, Student student, Room room) {
+    public Reservation(String resId, Date date, Student student, Room room, String status) {
         this.resId = resId;
         this.date = date;
-        this.status = status;
         this.student = student;
         this.room = room;
+        this.status = status;
+    }
+
+    public Reservation(String resId, Date date, String student_id, String room_type_id, String status) {
+
     }
 
     public String getResId() {
@@ -56,14 +62,6 @@ public class Reservation {
         this.date = date;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public Student getStudent() {
         return student;
     }
@@ -80,14 +78,22 @@ public class Reservation {
         this.room = room;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "Reservation{" +
                 "resId='" + resId + '\'' +
                 ", date=" + date +
-                ", status='" + status + '\'' +
                 ", student=" + student +
                 ", room=" + room +
+                ", status='" + status + '\'' +
                 '}';
     }
 }

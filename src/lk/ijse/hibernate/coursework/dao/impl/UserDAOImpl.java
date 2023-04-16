@@ -77,6 +77,11 @@ public class UserDAOImpl implements UserDAO {
         return user;
     }
 
+    @Override
+    public User getObject(String id) {
+        return null;
+    }
+
 
     @Override
     public void setSession(Session session) {
