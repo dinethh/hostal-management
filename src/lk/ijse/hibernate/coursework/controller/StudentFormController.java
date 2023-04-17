@@ -171,7 +171,7 @@ public class StudentFormController implements Initializable {
         txtAddress.clear();
         txtContact.clear();
         txtName.clear();
-        cmbGender.setValue("");
-//        txtDOB.resetValidation();
+        cmbGender.getEditor().clear();
+        txtDOB.getEditor().clear();
     }
 }

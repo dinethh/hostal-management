@@ -31,7 +31,8 @@ public class ReservationBOImpl implements ReservationBO {
     StudentDAO studentDAO = (StudentDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
 
     private Session session;
-    private Transaction transaction = null;
+    private final Transaction transaction = null;
+
     @Override
     public List<String> getStudentIds() {
         try {
@@ -70,30 +71,28 @@ public class ReservationBOImpl implements ReservationBO {
 //    }
 
 
-
-
     @Override
     public StudentDTO getStudent(String id) {
 
         session = SessionFactoryConfiguration.getInstance().getSession();
-        Transaction transaction=session.beginTransaction ();
+        Transaction transaction = session.beginTransaction();
 
-        studentDAO.setSession (session);
+        studentDAO.setSession(session);
         try {
             Student st = studentDAO.search(id);
-            session.close ();
-            return new StudentDTO (
+            session.close();
+            return new StudentDTO(
                     st.getStudent_id(),
                     st.getName(),
-                    st.getAddress (),
+                    st.getAddress(),
                     st.getContact_no(),
-                    st.getDob (),
-                    st.getGender ()
+                    st.getDob(),
+                    st.getGender()
             );
 
         } catch (Exception e) {
-            e.printStackTrace ();
-            transaction.rollback ();
+            e.printStackTrace();
+            transaction.rollback();
             return null;
         }
     }
@@ -101,22 +100,22 @@ public class ReservationBOImpl implements ReservationBO {
     @Override
     public RoomDTO getRoom(String id) {
         session = SessionFactoryConfiguration.getInstance().getSession();
-        Transaction transaction=session.beginTransaction ();
+        Transaction transaction = session.beginTransaction();
 
-        roomDAO.setSession (session);
+        roomDAO.setSession(session);
         try {
             Room r = roomDAO.search(id);
-            session.close ();
-            return new RoomDTO (
+            session.close();
+            return new RoomDTO(
                     r.getRoom_type_id(),
-                    r.getType (),
+                    r.getType(),
                     r.getKey_money(),
-                    r.getQty ()
+                    r.getQty()
             );
 
         } catch (Exception e) {
-            e.printStackTrace ();
-            transaction.rollback ();
+            e.printStackTrace();
+            transaction.rollback();
             return null;
         }
     }
@@ -124,31 +123,30 @@ public class ReservationBOImpl implements ReservationBO {
     @Override
     public List<ReservationDTO> getAllReservation() throws Exception {
         session = SessionFactoryConfiguration.getInstance().getSession();
-        Transaction transaction=session.beginTransaction ();
 
-        roomDAO.setSession (session);
-        List<Reservation>list= reservationDAO.getAll();
-        List<ReservationDTO>resList= new ArrayList<> ();
+        roomDAO.setSession(session);
+        List<Reservation> list = reservationDAO.getAll();
+        List<ReservationDTO> resList = new ArrayList<>();
 
-        for (Reservation res :list) {
-            resList.add(new ReservationDTO (
-                    res.getResId (),
-                    res.getDate (),
-                    new StudentDTO (
+        for (Reservation res : list) {
+            resList.add(new ReservationDTO(
+                    res.getResId(),
+                    res.getDate(),
+                    new StudentDTO(
                             res.getStudent().getStudent_id(),
                             res.getStudent().getName(),
                             res.getStudent().getAddress(),
                             res.getStudent().getContact_no(),
-                            res.getStudent().getDob (),
-                            res.getStudent().getGender ()
+                            res.getStudent().getDob(),
+                            res.getStudent().getGender()
                     ),
-                    new RoomDTO (
-                            res.getRoom ().getRoom_type_id(),
-                            res.getRoom ().getType (),
-                            res.getRoom ().getKey_money(),
-                            res.getRoom ().getQty ()
+                    new RoomDTO(
+                            res.getRoom().getRoom_type_id(),
+                            res.getRoom().getType(),
+                            res.getRoom().getKey_money(),
+                            res.getRoom().getQty()
                     ),
-                    res.getStatus ()
+                    res.getStatus()
             ));
         }
 
@@ -156,41 +154,40 @@ public class ReservationBOImpl implements ReservationBO {
     }
 
 
-
     @Override
     public boolean saveReservation(ReservationDTO dto) {
         session = SessionFactoryConfiguration.getInstance().getSession();
-        Transaction transaction=session.beginTransaction ();
+        Transaction transaction = session.beginTransaction();
 
-        try{
-            reservationDAO.setSession (session);
-            reservationDAO.save (
-                    new Reservation (
+        try {
+            reservationDAO.setSession(session);
+            reservationDAO.save(
+                    new Reservation(
                             dto.getResId(),
-                            dto.getDate (),
-                            new Student (
-                                    dto.getStudentDTO ().getStudent_id(),
-                                    dto.getStudentDTO ().getName(),
-                                    dto.getStudentDTO ().getAddress (),
-                                    dto.getStudentDTO ().getContact_no(),
-                                    dto.getStudentDTO ().getDob (),
-                                    dto.getStudentDTO ().getGender ()
+                            dto.getDate(),
+                            new Student(
+                                    dto.getStudentDTO().getStudent_id(),
+                                    dto.getStudentDTO().getName(),
+                                    dto.getStudentDTO().getAddress(),
+                                    dto.getStudentDTO().getContact_no(),
+                                    dto.getStudentDTO().getDob(),
+                                    dto.getStudentDTO().getGender()
                             ),
-                            new Room (
-                                    dto.getRoomDTO ().getRoom_type_id(),
-                                    dto.getRoomDTO ().getType (),
-                                    dto.getRoomDTO ().getKey_money(),
-                                    dto.getRoomDTO ().getQty ()
+                            new Room(
+                                    dto.getRoomDTO().getRoom_type_id(),
+                                    dto.getRoomDTO().getType(),
+                                    dto.getRoomDTO().getKey_money(),
+                                    dto.getRoomDTO().getQty()
                             ),
-                            dto.getStatus ()
+                            dto.getStatus()
                     ));
             transaction.commit();
             session.close();
             return true;
 
-        }catch (Exception e){
-            transaction.rollback ();
-            e.printStackTrace ();
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
             return false;
         }
 
@@ -199,63 +196,62 @@ public class ReservationBOImpl implements ReservationBO {
     @Override
     public boolean updateRoom(RoomDTO dto) {
         session = SessionFactoryConfiguration.getInstance().getSession();
-        Transaction transaction=session.beginTransaction ();
+        Transaction transaction = session.beginTransaction();
 
         try {
-            roomDAO.setSession (session);
-            roomDAO.update (new Room (
+            roomDAO.setSession(session);
+            roomDAO.update(new Room(
                     dto.getRoom_type_id(),
-                    dto.getType (),
+                    dto.getType(),
                     dto.getKey_money(),
-                    dto.getQty ()
+                    dto.getQty()
             ));
 
-            transaction.commit ();
-            session.close ();
+            transaction.commit();
+            session.close();
             return true;
-        }catch (Exception e){
-            transaction.rollback ();;
+        } catch (Exception e) {
+            transaction.rollback();
         }
         return false;
     }
 
     @Override
     public boolean updateReservation(ReservationDTO dto) {
-//        session = SessionFactoryConfiguration.getInstance().getSession();
-//        Transaction transaction=session.beginTransaction ();
-//
-//        try{
-//            reservationDAO.setSession (session);
-//            reservationDAO.update (
-//                    new Reservation (
-//                            dto.getResId(),
-//                            dto.getDate (),
-//                            new Student (
-//                                    dto.getStudentDTO ().getStudent_id(),
-//                                    dto.getStudentDTO ().getName(),
-//                                    dto.getStudentDTO ().getAddress (),
-//                                    dto.getStudentDTO ().getContact_no(),
-//                                    dto.getStudentDTO ().getDob (),
-//                                    dto.getStudentDTO ().getGender ()
-//                            ),
-//                            new Room (
-//                                    dto.getRoomDTO ().getRoom_type_id(),
-//                                    dto.getRoomDTO ().getType (),
-//                                    dto.getRoomDTO ().getKey_money(),
-//                                    dto.getRoomDTO ().getQty ()
-//                            ),
-//                            dto.getStatus ()
-//                    ));
-//            transaction.commit();
-//            session.close();
-//            return true;
-//
-//        }catch (Exception e){
-//            transaction.rollback ();
-//            e.printStackTrace ();
-//            return false;
-//        }
-        return false;
+        session = SessionFactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            reservationDAO.setSession(session);
+            reservationDAO.update(
+                    new Reservation(
+                            dto.getResId(),
+                            dto.getDate(),
+                            new Student(
+                                    dto.getStudentDTO().getStudent_id(),
+                                    dto.getStudentDTO().getName(),
+                                    dto.getStudentDTO().getAddress(),
+                                    dto.getStudentDTO().getContact_no(),
+                                    dto.getStudentDTO().getDob(),
+                                    dto.getStudentDTO().getGender()
+                            ),
+                            new Room(
+                                    dto.getRoomDTO().getRoom_type_id(),
+                                    dto.getRoomDTO().getType(),
+                                    dto.getRoomDTO().getKey_money(),
+                                    dto.getRoomDTO().getQty()
+                            ),
+                            dto.getStatus()
+                    ));
+            transaction.commit();
+            session.close();
+            return true;
+
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+            return false;
+        }
     }
 
 
@@ -266,6 +262,51 @@ public class ReservationBOImpl implements ReservationBO {
 
     @Override
     public boolean deleteReservation(ReservationDTO dto) {
+//        session = SessionFactoryConfiguration.getInstance().getSession();
+//        Transaction transaction = session.beginTransaction();
+//        try {
+//            reservationDAO.setSession(session);
+//            reservationDAO.delete(
+//                    String.valueOf(new Reservation(
+//                            dto.getResId(),
+//                            dto.getDate(),
+//                            new Student(
+//                                    dto.getStudentDTO().getStudent_id(),
+//                                    dto.getStudentDTO().getName(),
+//                                    dto.getStudentDTO().getAddress(),
+//                                    dto.getStudentDTO().getContact_no(),
+//                                    dto.getStudentDTO().getDob(),
+//                                    dto.getStudentDTO().getGender()
+//                            ),
+//                            new Room(
+//                                    dto.getRoomDTO().getRoom_type_id(),
+//                                    dto.getRoomDTO().getType(),
+//                                    dto.getRoomDTO().getKey_money(),
+//                                    dto.getRoomDTO().getQty()
+//                            ),
+//                            dto.getStatus()
+//                    ))
+//            );
+//            transaction.commit();
+//            session.close();
+//            return true;
+//        } catch (Exception e) {
+//            session.close();
+//            transaction.rollback();
+//        }
+
         return false;
     }
+
+    @Override
+    public ReservationDTO searchReservation(String id) throws Exception {
+        Reservation reservation = reservationDAO.search(id);
+        return new ReservationDTO(
+                reservation.getResId(),
+                reservation.getDate(),
+                reservation.getStudent(),
+                reservation.getRoom(),
+                reservation.getStatus());
+    }
 }
+

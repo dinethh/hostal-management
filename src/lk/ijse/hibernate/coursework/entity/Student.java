@@ -1,5 +1,7 @@
 package lk.ijse.hibernate.coursework.entity;
 
+import lk.ijse.hibernate.coursework.dto.StudentDTO;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -11,7 +13,7 @@ import java.util.List;
  */
 
 @Entity
-public class Student {
+public class Student extends StudentDTO {
     @Id
     @Column(name = "student_id", length = 10)
     private String student_id;

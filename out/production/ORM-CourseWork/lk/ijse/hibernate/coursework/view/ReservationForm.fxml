@@ -58,12 +58,16 @@
                 <JFXTextField fx:id="txtResID" onAction="#SearchOnAction" GridPane.columnIndex="1" />
                 <JFXComboBox fx:id="cmbRoomTypeID" prefHeight="25.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                 <JFXComboBox fx:id="cmbStudentID" prefHeight="25.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="QTY" GridPane.rowIndex="8">
+            <Label text="Date" GridPane.rowIndex="8">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="txtQty" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label fx:id="lblDate" prefHeight="20.0" prefWidth="122.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
             </children>
         </GridPane>
         <GridPane layoutX="47.0" layoutY="241.0" prefHeight="51.0" prefWidth="304.0">

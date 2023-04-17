@@ -1,5 +1,7 @@
 package lk.ijse.hibernate.coursework.entity;
 
+import lk.ijse.hibernate.coursework.dto.RoomDTO;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +14,7 @@ import java.util.List;
  */
 
 @Entity
-public class Room {
+public class Room extends RoomDTO {
     @Id
     @Column(name = "room_type_id", length = 10)
     private String room_type_id;

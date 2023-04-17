@@ -17,7 +17,7 @@ public class ReservationDTO {
     private RoomDTO roomDTO;
     private String status;
 
-    public ReservationDTO() {
+    public ReservationDTO(String text, StudentDTO studnetDetail, RoomDTO roomDetail, String id) {
     }
 
     public ReservationDTO(String resId, Date date, StudentDTO studentDTO, RoomDTO roomDTO, String status) {
@@ -27,6 +27,7 @@ public class ReservationDTO {
         this.setRoomDTO (roomDTO);
         this.status = status;
     }
+
 
     public String getResId() {
         return resId;
