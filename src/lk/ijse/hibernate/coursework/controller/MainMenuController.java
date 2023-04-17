@@ -51,8 +51,8 @@ public class MainMenuController implements Initializable {
     }
 
     public void onClickDashboard(MouseEvent mouseEvent) throws IOException {
-//        Node node = FXMLLoader.load(getClass().getResource("../view/DashboardForm.fxml"));
-//        setNode(node);
+        Node node = FXMLLoader.load(getClass().getResource("../view/DashboardForm.fxml"));
+        setNode(node);
     }
 
     @Override

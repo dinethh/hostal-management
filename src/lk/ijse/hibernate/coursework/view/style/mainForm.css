@@ -5,15 +5,15 @@
  * Name  :ORM-CourseWork
  */
 
-*{
+* {
     -fx-font-family: Ubuntu;
 }
-#imgHome:hover{
-    -fx-effect: dropshadow(gaussian,#6495ED,20,0.0,0,0);
+
+#imgHome:hover {
+    -fx-effect: dropshadow(gaussian, #6495ED, 20, 0.0, 0, 0);
 }
-.mainFxmlClass {
-    -fx-background-color: red;
+
+.buttonHome:hover {
+    -fx-effect: dropshadow(gaussian, #6495ED, 20, 0.0, 0, 0);
 }
-#imgHome:hover{
-    -fx-effect: dropshadow(gaussian,#6495ED,20,0.0,0,0);
-}
+

@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -17,16 +18,18 @@ public class AppInitializer extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(this.getClass().getResource
-                ("/lk/ijse/hibernate/coursework/view/MainMenuForm.fxml"));
-
 //        Parent root = FXMLLoader.load(this.getClass().getResource
-//                ("/lk/ijse/hibernate/coursework/view/LoginForm.fxml"));
-//
+//                ("/lk/ijse/hibernate/coursework/view/MainMenuForm.fxml"));
+
+        Parent root = FXMLLoader.load(this.getClass().getResource
+                ("/lk/ijse/hibernate/coursework/view/LoginForm.fxml"));
+
         Scene mainScene = new Scene(root);
         primaryStage.setScene(mainScene);
         primaryStage.setTitle("Hostel Management System");
         primaryStage.centerOnScreen();
+        primaryStage.getIcons().add(new Image("lk/ijse/hibernate/coursework/view/assests/icon.png"));
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
