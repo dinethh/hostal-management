@@ -1,82 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.*?>
-<?import java.net.URL?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="560.0" prefWidth="890.0"
-            style="-fx-background-color: #cfd8dc;" xmlns="http://javafx.com/javafx/8.0.171"
-            fx:controller="lk.ijse.hibernate.coursework.controller.MainMenuController">
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="560.0" prefWidth="890.0" style="-fx-background-color: #cfd8dc;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.coursework.controller.MainMenuController">
     <children>
         <AnchorPane prefHeight="564.0" prefWidth="167.0" style="-fx-background-color: #eceff1;">
             <children>
-                <ImageView id="imgHome" fitHeight="55.0" fitWidth="57.0" layoutX="57.0" layoutY="27.0"
-                           onMouseClicked="#onClickUser" pickOnBounds="true" preserveRatio="true"
-                           styleClass="style\mainForm.css">
+                <ImageView fitHeight="55.0" fitWidth="57.0" layoutX="57.0" layoutY="143.0" onMouseClicked="#onClickUser" pickOnBounds="true" preserveRatio="true" styleClass="mainFxmlClass">
                     <image>
-                        <Image url="@assests/user.png"/>
+                        <Image url="@assests/user.png" />
                     </image>
                 </ImageView>
-                <ImageView id="imgHome" fitHeight="55.0" fitWidth="57.0" layoutX="56.0" layoutY="136.0"
-                           onMouseClicked="#OnClickStudent" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="55.0" fitWidth="57.0" layoutX="56.0" layoutY="252.0" onMouseClicked="#OnClickStudent" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@assests/student.png"/>
+                        <Image url="@assests/student.png" />
                     </image>
                 </ImageView>
-                <ImageView id="imgHome" fitHeight="55.0" fitWidth="57.0" layoutX="57.0" layoutY="242.0"
-                           onMouseClicked="#OnClickRoom" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="55.0" fitWidth="57.0" layoutX="57.0" layoutY="358.0" onMouseClicked="#OnClickRoom" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@assests/room.png"/>
+                        <Image url="@assests/room.png" />
                     </image>
                 </ImageView>
-                <ImageView id="imgHome" fitHeight="55.0" fitWidth="57.0" layoutX="56.0" layoutY="344.0"
-                           onMouseClicked="#OnClickReservation" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="55.0" fitWidth="57.0" layoutX="56.0" layoutY="460.0" onMouseClicked="#OnClickReservation" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@assests/reservation.png"/>
+                        <Image url="@assests/reservation.png" />
                     </image>
                 </ImageView>
-                <Label layoutX="71.0" layoutY="82.0" text="User" textFill="#775e5e">
+                <Label layoutX="71.0" layoutY="198.0" text="User" textFill="#775e5e">
                     <font>
-                        <Font name="System Bold" size="14.0"/>
+                        <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-                <Label layoutX="56.0" layoutY="191.0" text="Students" textFill="#775e5e">
+                <Label layoutX="56.0" layoutY="307.0" text="Students" textFill="#775e5e">
                     <font>
-                        <Font name="System Bold" size="14.0"/>
+                        <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-                <Label layoutX="62.0" layoutY="297.0" text="Rooms" textFill="#775e5e">
+                <Label layoutX="62.0" layoutY="413.0" text="Rooms" textFill="#775e5e">
                     <font>
-                        <Font name="System Bold" size="14.0"/>
+                        <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-                <Label layoutX="48.0" layoutY="399.0" text="Reservation" textFill="#775e5e">
+                <Label layoutX="48.0" layoutY="515.0" text="Reservation" textFill="#775e5e">
                     <font>
-                        <Font name="System Bold" size="14.0"/>
+                        <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-                <Separator layoutX="2.0" layoutY="114.0" prefHeight="4.0" prefWidth="160.0"/>
-                <Separator layoutX="2.0" layoutY="222.0" prefHeight="4.0" prefWidth="160.0"/>
-                <Separator layoutX="2.0" layoutY="330.0" prefHeight="4.0" prefWidth="160.0"/>
-                <ImageView id="imgHome" fitHeight="55.0" fitWidth="57.0" layoutX="55.0" layoutY="458.0"
-                           pickOnBounds="true" preserveRatio="true">
+                <Separator layoutX="2.0" layoutY="230.0" prefHeight="4.0" prefWidth="160.0" />
+                <Separator layoutX="2.0" layoutY="338.0" prefHeight="4.0" prefWidth="160.0" />
+                <Separator layoutX="2.0" layoutY="446.0" prefHeight="4.0" prefWidth="160.0" />
+                <Separator layoutX="5.0" layoutY="560.0" prefHeight="4.0" prefWidth="160.0" />
+                <Label layoutX="49.0" layoutY="88.0" text="Dashboard" textFill="#775e5e">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Separator layoutX="2.0" layoutY="120.0" prefHeight="4.0" prefWidth="160.0" />
+                <ImageView fitHeight="55.0" fitWidth="57.0" layoutX="58.0" layoutY="33.0" onMouseClicked="#onClickDashboard" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@assests/setings.png"/>
+                        <Image url="@assests/dashboard.png" />
                     </image>
                 </ImageView>
-                <Label layoutX="57.0" layoutY="516.0" text="Settings" textFill="#775e5e">
-                    <font>
-                        <Font name="System Bold" size="14.0"/>
-                    </font>
-                </Label>
-                <Separator layoutX="5.0" layoutY="444.0" prefHeight="4.0" prefWidth="160.0"/>
+                <JFXButton fx:id="btn" layoutX="58.0" layoutY="39.0" minWidth="46.0" onAction="#dashboardOnAction" opacity="0.0" prefHeight="40.0" prefWidth="30.0" />
             </children>
-            <stylesheets>
-                <URL value="@style/mainForm.css"/>
-                <URL value="@style/roomForm.css"/>
-            </stylesheets>
         </AnchorPane>
-        <AnchorPane fx:id="MyPane" layoutX="185.0" layoutY="5.0" prefHeight="561.0" prefWidth="692.0"/>
+        <AnchorPane fx:id="MyPane" focusTraversable="true" layoutX="185.0" layoutY="5.0" prefHeight="561.0" prefWidth="692.0" />
     </children>
 </AnchorPane>

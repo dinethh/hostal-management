@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="553.0" prefWidth="692.0" style="-fx-background-color: #cfd8dc;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.coursework.controller.DashboardController">
+   <children>
+      <AnchorPane layoutX="41.0" layoutY="290.0" prefHeight="92.0" prefWidth="171.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <Label layoutX="55.0" layoutY="53.0" text="Students" textFill="#34495e">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblStuCount" layoutX="65.0" layoutY="11.0" text="10">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="256.0" layoutY="290.0" prefHeight="92.0" prefWidth="171.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <Label layoutX="44.0" layoutY="52.0" text="Room Type" textFill="#34495e">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblRoomCount" layoutX="74.0" layoutY="11.0" text="0">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="475.0" layoutY="291.0" prefHeight="92.0" prefWidth="171.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <Label layoutX="52.0" layoutY="52.0" text="Reserved" textFill="#34495e">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblReservedCount" layoutX="61.0" layoutY="10.0" text="10">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label layoutX="192.0" layoutY="55.0" prefHeight="71.0" prefWidth="320.0" text=" D24 Hostel" textFill="#2c3e50">
+         <font>
+            <Font name="System Bold" size="49.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
