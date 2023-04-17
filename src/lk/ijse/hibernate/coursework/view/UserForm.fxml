@@ -8,16 +8,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="553.0" prefWidth="692.0" style="-fx-background-color: #cfd8dc;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.coursework.controller.UserFormController">
+<AnchorPane prefHeight="568.0" prefWidth="721.0" style="-fx-background-color: #cfd8dc;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.coursework.controller.UserFormController">
    <children>
-      <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="658.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@assests/user.png" />
-         </image>
-      </ImageView>
       <GridPane layoutX="193.0" layoutY="95.0" prefHeight="154.0" prefWidth="267.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="126.888916015625" minWidth="10.0" prefWidth="94.0" />
@@ -80,5 +76,19 @@
             </JFXButton>
          </children>
       </GridPane>
+      <Pane layoutX="36.0" layoutY="7.0" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #EAF2F8;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="42.0" layoutY="6.0" text="User">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="36.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@assests/user.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
