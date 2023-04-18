@@ -15,6 +15,7 @@ import lk.ijse.hibernate.coursework.dto.RoomDTO;
 import lk.ijse.hibernate.coursework.dto.StudentDTO;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -56,7 +57,12 @@ public class ReservationFormController implements Initializable {
                         r.getRoomDTO(),
                         r.getStatus()
                 ));
+                System.out.println("===================================");
+                System.out.println(r.getResId()+" "
+                        +r.getDate()+" "+r.getStudentDTO()+" "+r.getRoomDTO());
+                System.out.println("===================================");
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -69,6 +75,7 @@ public class ReservationFormController implements Initializable {
         String resID = txtResID.getText();
         String status = cmbStatus.getValue().toString();
         java.sql.Date sqlDate = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+
 
         try {
             boolean isSaveReservation = reservationBO.saveReservation(
@@ -83,7 +90,6 @@ public class ReservationFormController implements Initializable {
 
             if (isSaveReservation) {
                 RoomDTO room = getRoomDetail();
-//                System.out.println(room.getQty() - 1);
                 room.setQty(room.getQty() - 1);
                 reservationBO.updateRoom(room);
                 setDataTable();
@@ -99,14 +105,11 @@ public class ReservationFormController implements Initializable {
 
     public void UpdateOnAction(ActionEvent actionEvent) {
 
-        String stId = cmbStudentID.getValue().toString();
-        String roomID = cmbRoomTypeID.getValue().toString();
         String status = cmbStatus.getValue().toString();
         String resId = txtResID.getText();
         StudentDTO studentDTO = getStudnetDetail();
         RoomDTO roomDTO = getRoomDetail();
         java.sql.Date sqlDate = new java.sql.Date(Calendar.getInstance().getTime().getTime());
-
 
         try {
             if (reservationBO.updateReservation(
@@ -128,32 +131,32 @@ public class ReservationFormController implements Initializable {
     }
 
     public void DeleteOnAction(ActionEvent actionEvent) {
-//        String stId = cmbStudentID.getValue().toString();
-//        String roomID = cmbRoomTypeID.getValue().toString();
-//        String status = cmbStatus.getValue().toString();
-//        String resId = txtResID.getText();
-//        StudentDTO studentDTO = getStudnetDetail();
-//        RoomDTO roomDTO = getRoomDetail();
-//        java.sql.Date sqlDate = new java.sql.Date(Calendar.getInstance().getTime().getTime());
-//
-//        try{
-//            boolean isDelete=reservationBO.deleteReservation (
-//                    new ReservationDTO (
-//                            resId,
-//                            sqlDate,
-//                            studentDTO,
-//                            roomDTO,
-//                            status
-//                    ));
-//            if (isDelete){
-//                RoomDTO room=getRoomDetail ();
-//                room.setQty (room.getQty ()+1);
-//                reservationBO.updateRoom (room);
-//                setDataTable();
-//            }
-//        }catch (Exception e){
-//            e.printStackTrace ();
-//        }
+
+        String status = cmbStatus.getValue().toString();
+        String resId = txtResID.getText();
+        StudentDTO studentDTO = getStudnetDetail();
+        RoomDTO roomDTO = getRoomDetail();
+        java.sql.Date sqlDate = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+
+        try{
+            boolean isDelete=reservationBO.deleteReservation (
+                    new ReservationDTO (
+                            resId,
+                            sqlDate,
+                            studentDTO,
+                            roomDTO,
+                            status
+                    ));
+            if (isDelete){
+                RoomDTO room=getRoomDetail ();
+                room.setQty (room.getQty ()+1);
+                reservationBO.updateRoom (room);
+                new Alert(Alert.AlertType.CONFIRMATION, "Reservation is Removed").show();
+                setDataTable();
+            }
+        }catch (Exception e){
+            e.printStackTrace ();
+        }
     }
 
     public void SearchOnAction(ActionEvent actionEvent) {
@@ -170,8 +173,8 @@ public class ReservationFormController implements Initializable {
 
     private void fillData(ReservationDTO reservation) {
         txtResID.setText(reservation.getResId());
-        cmbStudentID.setValue(reservation.getStudentDTO());
-        cmbRoomTypeID.setValue(reservation.getRoomDTO());
+        cmbStudentID.setValue(reservation.getStudentDTO().getStudent_id());
+        cmbRoomTypeID.setValue(reservation.getRoomDTO().getRoom_type_id());
         cmbStatus.setValue(reservation.getStatus());
         lblDate.setText(String.valueOf(reservation.getDate()));
     }

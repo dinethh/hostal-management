@@ -17,14 +17,14 @@ public class ReservationDTO {
     private RoomDTO roomDTO;
     private String status;
 
-    public ReservationDTO(String text, StudentDTO studnetDetail, RoomDTO roomDetail, String id) {
+    public ReservationDTO() {
     }
 
     public ReservationDTO(String resId, Date date, StudentDTO studentDTO, RoomDTO roomDTO, String status) {
         this.resId = resId;
         this.date = date;
-        this.setStudentDTO (studentDTO);
-        this.setRoomDTO (roomDTO);
+        this.setStudentDTO(studentDTO);
+        this.setRoomDTO(roomDTO);
         this.status = status;
     }
 
