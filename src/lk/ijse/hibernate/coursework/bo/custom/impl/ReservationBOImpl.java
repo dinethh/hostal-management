@@ -1,5 +1,7 @@
 package lk.ijse.hibernate.coursework.bo.custom.impl;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import lk.ijse.hibernate.coursework.bo.custom.ReservationBO;
 import lk.ijse.hibernate.coursework.dao.DAOFactory;
 import lk.ijse.hibernate.coursework.dao.custom.ReservationDAO;
@@ -297,7 +299,6 @@ public class ReservationBOImpl implements ReservationBO {
            transaction.rollback();
             return false;
         }
-
 
     }
 

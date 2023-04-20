@@ -20,7 +20,7 @@ public class AppInitializer extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(this.getClass().getResource("/lk/ijse/hibernate/coursework/view/MainMenuForm.fxml"));
 
-       // Parent root = FXMLLoader.load(this.getClass().getResource("/lk/ijse/hibernate/coursework/view/LoginForm.fxml"));
+      //  Parent root = FXMLLoader.load(this.getClass().getResource("/lk/ijse/hibernate/coursework/view/LoginForm.fxml"));
         Scene mainScene = new Scene(root);
         primaryStage.setScene(mainScene);
         primaryStage.setTitle("Hostel Management System");

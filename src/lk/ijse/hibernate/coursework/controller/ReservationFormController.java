@@ -92,8 +92,9 @@ public class ReservationFormController implements Initializable {
                 RoomDTO room = getRoomDetail();
                 room.setQty(room.getQty() - 1);
                 reservationBO.updateRoom(room);
-                setDataTable();
                 new Alert(Alert.AlertType.CONFIRMATION, "QTY is Updated").show();
+                setDataTable();
+
             }
 
 
@@ -157,6 +158,8 @@ public class ReservationFormController implements Initializable {
         }catch (Exception e){
             e.printStackTrace ();
         }
+
+
     }
 
     public void SearchOnAction(ActionEvent actionEvent) {
@@ -219,7 +222,7 @@ public class ReservationFormController implements Initializable {
 
         colResID.setCellValueFactory(new PropertyValueFactory<>("resId"));
         colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
-        colStudentID.setCellValueFactory(new PropertyValueFactory<>("student_id"));
+        colStudentID.setCellValueFactory(new PropertyValueFactory<>("studentDTO.getStudent_id()"));
         colRoomType.setCellValueFactory(new PropertyValueFactory<>("room_type_id"));
         colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
