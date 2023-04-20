@@ -16,9 +16,11 @@ public class ReservationDTO {
     private StudentDTO studentDTO;
     private RoomDTO roomDTO;
     private String status;
-
+    private String student_id;
+    private String room_id;
 
     public ReservationDTO() {
+
     }
 
     public ReservationDTO(String resId, Date date, StudentDTO studentDTO, RoomDTO roomDTO, String status) {
@@ -27,8 +29,17 @@ public class ReservationDTO {
         this.setStudentDTO(studentDTO);
         this.setRoomDTO(roomDTO);
         this.status = status;
+        this.student_id = studentDTO.getStudent_id();
+        this.room_id = roomDTO.getRoom_type_id();
     }
 
+    public String getRoom_id() {
+        return room_id;
+    }
+
+    public String getStudent_id() {
+        return student_id;
+    }
 
     public String getResId() {
         return resId;

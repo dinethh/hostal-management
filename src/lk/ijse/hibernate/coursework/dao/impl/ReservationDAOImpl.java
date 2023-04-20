@@ -2,7 +2,6 @@ package lk.ijse.hibernate.coursework.dao.impl;
 
 import lk.ijse.hibernate.coursework.dao.custom.ReservationDAO;
 import lk.ijse.hibernate.coursework.entity.Reservation;
-import lk.ijse.hibernate.coursework.entity.Room;
 import lk.ijse.hibernate.coursework.util.SessionFactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -16,7 +15,9 @@ import java.util.List;
  * Name  :ORM-CourseWork
  */
 
+
 public class ReservationDAOImpl implements ReservationDAO {
+    Reservation reservation;
     private Transaction transaction = null;
     private Session session;
 
@@ -54,14 +55,15 @@ public class ReservationDAOImpl implements ReservationDAO {
 
     @Override
     public boolean delete(String id) {
-        session = SessionFactoryConfiguration.getInstance().getSession();
-        transaction = session.beginTransaction();
-        Reservation reservation = null;
-        reservation = session.get(Reservation.class, id);
-        session.delete(reservation);
-        transaction.commit();
-        return true;
-       // return false;
+
+        reservation=new Reservation();
+        reservation.setResId(id);
+        try {
+            session.delete(reservation);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
     }
 
     @Override

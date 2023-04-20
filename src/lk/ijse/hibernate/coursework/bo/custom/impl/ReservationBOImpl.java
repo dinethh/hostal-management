@@ -267,10 +267,11 @@ public class ReservationBOImpl implements ReservationBO {
     @Override
     public boolean deleteReservation(ReservationDTO dto) {
         session = SessionFactoryConfiguration.getInstance().getSession();
+        System.out.println("session "+session);
         Transaction transaction = session.beginTransaction();
         try {
             reservationDAO.setSession(session);
-            reservationDAO.delete(
+            /*reservationDAO.delete(
                     String.valueOf(new Reservation(
                             dto.getResId(),
                             dto.getDate(),
@@ -290,14 +291,18 @@ public class ReservationBOImpl implements ReservationBO {
                             ),
                             dto.getStatus()
                     ))
-            );
+            );*/
+
+            reservationDAO.delete(dto.getResId());
             transaction.commit();
-            session.close();
+
             return true;
         } catch (Exception e) {
-            session.close();
-           transaction.rollback();
+            System.out.println(" Exception "+e);
+            transaction.rollback();
             return false;
+        }finally {
+            session.close();
         }
 
     }

@@ -32,9 +32,6 @@ public class ReservationFormController implements Initializable {
     public JFXTextField txtResID;
     public JFXComboBox cmbRoomTypeID;
     public JFXComboBox cmbStudentID;
-    public TableColumn colQTYrec;
-    public JFXTextField txtQtyfromREC;
-    public JFXTextField txtQty;
     public TableView tblReservation;
     public TableColumn colResID;
     public TableColumn colDate;
@@ -57,11 +54,7 @@ public class ReservationFormController implements Initializable {
                         r.getRoomDTO(),
                         r.getStatus()
                 ));
-                System.out.println("===================================");
-                System.out.println(r.getResId()+" "
-                        +r.getDate()+" "+r.getStudentDTO()+" "+r.getRoomDTO());
-                System.out.println("===================================");
-            }
+                }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -158,8 +151,6 @@ public class ReservationFormController implements Initializable {
         }catch (Exception e){
             e.printStackTrace ();
         }
-
-
     }
 
     public void SearchOnAction(ActionEvent actionEvent) {
@@ -209,8 +200,6 @@ public class ReservationFormController implements Initializable {
     public RoomDTO getRoomDetail() {
         String roomId = cmbRoomTypeID.getValue().toString();
         return reservationBO.getRoom(roomId);
-//        String roomType = cmbRoomTypeID.getValue().toString();
-//        return reservationBO.getRoom(roomType);
     }
 
 
@@ -222,8 +211,8 @@ public class ReservationFormController implements Initializable {
 
         colResID.setCellValueFactory(new PropertyValueFactory<>("resId"));
         colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
-        colStudentID.setCellValueFactory(new PropertyValueFactory<>("studentDTO.getStudent_id()"));
-        colRoomType.setCellValueFactory(new PropertyValueFactory<>("room_type_id"));
+        colStudentID.setCellValueFactory(new PropertyValueFactory<>("student_id"));
+        colRoomType.setCellValueFactory(new PropertyValueFactory<>("room_id"));
         colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
     }
