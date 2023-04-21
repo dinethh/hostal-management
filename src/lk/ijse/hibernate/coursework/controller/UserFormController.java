@@ -3,11 +3,20 @@ package lk.ijse.hibernate.coursework.controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.paint.Paint;
 import lk.ijse.hibernate.coursework.bo.BOFactory;
 import lk.ijse.hibernate.coursework.bo.custom.UserBO;
 import lk.ijse.hibernate.coursework.dto.UserDTO;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Author:Dineth Panditha
@@ -16,32 +25,44 @@ import lk.ijse.hibernate.coursework.dto.UserDTO;
  * Name  :ORM-CourseWork
  */
 
-public class UserFormController {
+public class UserFormController implements Initializable {
 
     public JFXTextField txtUserID;
     public JFXTextField txtPassword;
     public JFXTextField txtUserName;
     public JFXButton btnSave;
-
-
+    public Label lblUserName;
+    public Label lblPassword;
     UserBO userBO = (UserBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
+    private Matcher userNameMatcher;
+    private Matcher pwMatcher;
 
     public void saveUserOnAction(ActionEvent actionEvent) {
         String userID = txtUserID.getText();
         String password = txtPassword.getText();
         String userName = txtUserName.getText();
-
-        try {
-            if (userBO.saveUser(new UserDTO(userID, userName, password))) {
-                Clear();
-                new Alert(Alert.AlertType.CONFIRMATION, "Saved..!").show();
+        if (userNameMatcher.matches()) {
+            if (pwMatcher.matches()) {
+                try {
+                    if (userBO.saveUser(new UserDTO(userID, userName, password))) {
+                        Clear();
+                        new Alert(Alert.AlertType.CONFIRMATION, "Saved..!").show();
+                    } else {
+                        new Alert(Alert.AlertType.WARNING, "Try Again..!").show();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             } else {
-                new Alert(Alert.AlertType.WARNING, "Try Again..!").show();
+                txtPassword.requestFocus();
+                txtPassword.setFocusColor(Paint.valueOf("Red"));
+                lblPassword.setText("Invalid Password");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } else {
+            txtUserName.requestFocus();
+            txtUserName.setFocusColor(Paint.valueOf("Red"));
+            lblUserName.setText("Invalid user name");
         }
-
     }
 
     //Delete
@@ -103,6 +124,48 @@ public class UserFormController {
         txtUserName.clear();
         txtPassword.clear();
     }
+//    Rejex Part =====================
+
+    private void setPatterns() {
+        Pattern userNamePattern = Pattern.compile("^[a-zA-Z]{4}$");
+        userNameMatcher = userNamePattern.matcher(txtUserName.getText());
+        Pattern pwPattern = Pattern.compile("^[0-9]{4}$");
+        pwMatcher = pwPattern.matcher(txtPassword.getText());
+    }
+
+    public void txtUserNameKeyTypedOnAction(KeyEvent keyEvent) {
+        lblUserName.setText("");
+        txtUserName.setFocusColor(Paint.valueOf("Blue"));
+
+        Pattern userNamePattern = Pattern.compile("^[a-zA-Z]{4}$");
+        userNameMatcher = userNamePattern.matcher(txtUserName.getText());
+
+        if (!userNameMatcher.matches()) {
+            txtUserName.requestFocus();
+            txtUserName.setFocusColor(Paint.valueOf("Red"));
+            lblUserName.setText("invalid user name");
+        }
+    }
+
+    public void txtPasswordKeyTypedOnAction(KeyEvent keyEvent) {
+        lblPassword.setText("");
+        txtPassword.setFocusColor(Paint.valueOf("Blue"));
+
+        Pattern pwPattern = Pattern.compile("^[0-9]{4}$");
+        pwMatcher = pwPattern.matcher(txtPassword.getText());
+
+        if (!pwMatcher.matches()) {
+            txtPassword.requestFocus();
+            txtPassword.setFocusColor(Paint.valueOf("Red"));
+            lblPassword.setText("invalid Password");
+        }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        setPatterns();
+    }
+
 
 }
 

@@ -7,12 +7,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.paint.Paint;
 import lk.ijse.hibernate.coursework.bo.BOFactory;
 import lk.ijse.hibernate.coursework.bo.custom.RoomBO;
 import lk.ijse.hibernate.coursework.dto.RoomDTO;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Author:Dineth Panditha
@@ -36,8 +39,11 @@ public class RoomFormController implements Initializable {
     public JFXComboBox cmbRoomTypeID;
     public TableColumn colAvailableQTY;
     public Label lblTotal;
-
+    public Label lblKeyMoney;
+    public Label lblQty;
     RoomBO roomBO = (RoomBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ROOM);
+    private Matcher keyMoneyMatcher;
+    private Matcher qtyMatcher;
 
     private void setDataTable() {
         tblRoom.getItems().clear();
@@ -61,17 +67,28 @@ public class RoomFormController implements Initializable {
         double keyMoney = Double.parseDouble(txtKeyMoney.getText());
         int qty = Integer.parseInt(txtQTY.getText());
         String type = String.valueOf(cmbRoomType.getValue());
-
-        try {
-            if (roomBO.saveRoom(new RoomDTO(roomID, type, keyMoney, qty))) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Saved..!").show();
-                setDataTable();
-                Clear();
+        if (keyMoneyMatcher.matches()) {
+            if (qtyMatcher.matches()) {
+                try {
+                    if (roomBO.saveRoom(new RoomDTO(roomID, type, keyMoney, qty))) {
+                        new Alert(Alert.AlertType.CONFIRMATION, "Saved..!").show();
+                        setDataTable();
+                        Clear();
+                    } else {
+                        new Alert(Alert.AlertType.WARNING, "Try Again..!").show();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             } else {
-                new Alert(Alert.AlertType.WARNING, "Try Again..!").show();
+                txtQTY.requestFocus();
+                txtQTY.setFocusColor(Paint.valueOf("Red"));
+                lblQty.setText("Invalid Input");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } else {
+            txtKeyMoney.requestFocus();
+            txtKeyMoney.setFocusColor(Paint.valueOf("Red"));
+            lblKeyMoney.setText("Invalid Input");
         }
     }
 
@@ -149,6 +166,7 @@ public class RoomFormController implements Initializable {
         setType();
         setTblValues();
         setDataTable();
+        setPatterns();
     }
 
     private void Clear() {
@@ -181,4 +199,40 @@ public class RoomFormController implements Initializable {
 //        txtKeyMoney.setText(String.valueOf(result));
     }
 
+    private void setPatterns() {
+        Pattern keymoneyPattern = Pattern.compile("^[0-9]{4}$");
+        keyMoneyMatcher = keymoneyPattern.matcher(txtKeyMoney.getText());
+
+        Pattern qtyPattern = Pattern.compile("^[0-9]{2}$");
+        qtyMatcher = qtyPattern.matcher(txtQTY.getText());
+    }
+
+    public void txtKeyMoneyOnKeyReleased(KeyEvent keyEvent) {
+        lblKeyMoney.setText("");
+        txtKeyMoney.setFocusColor(Paint.valueOf("Blue"));
+
+        Pattern keymoneyPattern = Pattern.compile("^[0-9]{4}$");
+        keyMoneyMatcher = keymoneyPattern.matcher(txtKeyMoney.getText());
+
+
+        if (!keyMoneyMatcher.matches()) {
+            txtKeyMoney.requestFocus();
+            txtKeyMoney.setFocusColor(Paint.valueOf("Red"));
+            lblKeyMoney.setText("invalid Input");
+        }
+    }
+
+    public void txtQTYOnKeyReleased(KeyEvent keyEvent) {
+        lblQty.setText("");
+        txtQTY.setFocusColor(Paint.valueOf("Blue"));
+
+        Pattern qtyPattern = Pattern.compile("^[0-9]{2}$");
+        qtyMatcher = qtyPattern.matcher(txtQTY.getText());
+
+        if (!qtyMatcher.matches()) {
+            txtQTY.requestFocus();
+            txtQTY.setFocusColor(Paint.valueOf("Red"));
+            lblQty.setText("invalid Input");
+        }
+    }
 }

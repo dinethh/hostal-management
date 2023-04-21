@@ -17,16 +17,20 @@
 
 <AnchorPane prefHeight="568.0" prefWidth="721.0" style="-fx-background-color: #cfd8dc;" stylesheets="@style/roomForm.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.coursework.controller.RoomFormController">
     <children>
-        <GridPane layoutX="35.0" layoutY="57.0" prefHeight="154.0" prefWidth="267.0">
+        <GridPane layoutX="35.0" layoutY="57.0" prefHeight="167.0" prefWidth="267.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
                 <Label text="Room ID">
@@ -34,25 +38,27 @@
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-                <Label text="Type" GridPane.rowIndex="1">
+                <Label text="Type" GridPane.rowIndex="2">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-                <Label text="Key Mony" GridPane.rowIndex="2">
+                <Label text="Key Mony" GridPane.rowIndex="4">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-                <Label text="QTY" GridPane.rowIndex="3">
+                <Label text="QTY" GridPane.rowIndex="6">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-                <JFXComboBox fx:id="cmbRoomType" onAction="#onActioncmbRoomType" prefHeight="41.0" prefWidth="133.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <JFXTextField fx:id="txtKeyMoney" prefHeight="48.0" prefWidth="133.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <JFXTextField fx:id="txtQTY" onKeyReleased="#onActionCalculateTotal" prefHeight="54.0" prefWidth="133.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <JFXComboBox fx:id="cmbRoomType" onAction="#onActioncmbRoomType" prefHeight="41.0" prefWidth="133.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <JFXTextField fx:id="txtKeyMoney" onKeyReleased="#txtKeyMoneyOnKeyReleased" prefHeight="48.0" prefWidth="133.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <JFXTextField fx:id="txtQTY" onKeyReleased="#txtQTYOnKeyReleased" prefHeight="54.0" prefWidth="133.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                 <JFXTextField fx:id="txtRoomID" onAction="#SearchOnAction" prefHeight="50.0" prefWidth="133.0" GridPane.columnIndex="1" />
+            <Label fx:id="lblKeyMoney" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="lblQty" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="7" />
             </children>
         </GridPane>
         <GridPane layoutX="47.0" layoutY="241.0" prefHeight="51.0" prefWidth="304.0">

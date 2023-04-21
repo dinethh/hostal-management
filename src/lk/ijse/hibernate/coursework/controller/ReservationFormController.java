@@ -6,7 +6,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.hibernate.coursework.bo.BOFactory;
 import lk.ijse.hibernate.coursework.bo.custom.ReservationBO;
@@ -15,7 +18,6 @@ import lk.ijse.hibernate.coursework.dto.RoomDTO;
 import lk.ijse.hibernate.coursework.dto.StudentDTO;
 
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -54,7 +56,7 @@ public class ReservationFormController implements Initializable {
                         r.getRoomDTO(),
                         r.getStatus()
                 ));
-                }
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -87,7 +89,7 @@ public class ReservationFormController implements Initializable {
                 reservationBO.updateRoom(room);
                 new Alert(Alert.AlertType.CONFIRMATION, "QTY is Updated").show();
                 setDataTable();
-
+                Clear();
             }
 
 
@@ -115,7 +117,7 @@ public class ReservationFormController implements Initializable {
                             status))) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Ok").show();
                 setDataTable();
-                //  Clear();
+                Clear();
             } else {
                 new Alert(Alert.AlertType.ERROR, "Try Again..!").show();
             }
@@ -132,24 +134,25 @@ public class ReservationFormController implements Initializable {
         RoomDTO roomDTO = getRoomDetail();
         java.sql.Date sqlDate = new java.sql.Date(Calendar.getInstance().getTime().getTime());
 
-        try{
-            boolean isDelete=reservationBO.deleteReservation (
-                    new ReservationDTO (
+        try {
+            boolean isDelete = reservationBO.deleteReservation(
+                    new ReservationDTO(
                             resId,
                             sqlDate,
                             studentDTO,
                             roomDTO,
                             status
                     ));
-            if (isDelete){
-                RoomDTO room=getRoomDetail ();
-                room.setQty (room.getQty ()+1);
-                reservationBO.updateRoom (room);
+            if (isDelete) {
+                RoomDTO room = getRoomDetail();
+                room.setQty(room.getQty() + 1);
+                reservationBO.updateRoom(room);
                 new Alert(Alert.AlertType.CONFIRMATION, "Reservation is Removed").show();
                 setDataTable();
+                Clear();
             }
-        }catch (Exception e){
-            e.printStackTrace ();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -202,6 +205,13 @@ public class ReservationFormController implements Initializable {
         return reservationBO.getRoom(roomId);
     }
 
+    private void Clear() {
+        cmbStatus.setValue(null);
+        txtResID.clear();
+        cmbRoomTypeID.setValue(null);
+        cmbStudentID.setValue(null);
+        lblDate.setText("");
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

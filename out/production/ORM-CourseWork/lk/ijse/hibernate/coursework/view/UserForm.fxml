@@ -45,8 +45,10 @@
                </font>
             </Label>
             <JFXTextField fx:id="txtUserID" onAction="#onActionSearchUser" GridPane.columnIndex="1" />
-            <JFXTextField fx:id="txtPassword" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <JFXTextField fx:id="txtUserName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <JFXTextField fx:id="txtPassword" onKeyReleased="#txtPasswordKeyTypedOnAction" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <JFXTextField fx:id="txtUserName" onKeyReleased="#txtUserNameKeyTypedOnAction" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="lblUserName" prefHeight="17.0" prefWidth="173.0" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="lblPassword" prefHeight="17.0" prefWidth="173.0" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
       </GridPane>
       <GridPane layoutX="47.0" layoutY="241.0" prefHeight="51.0" prefWidth="378.0">
