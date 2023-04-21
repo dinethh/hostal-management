@@ -64,6 +64,20 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
+    public String generateNewID() throws Exception {
+        String sql="FROM Student ORDER BY id DESC";
+        Student student= (Student) session.createQuery(sql).setMaxResults(1).uniqueResult();
+        session.close();
+        if (student!=null){
+            String lastId=student.getStudent_id();
+            int newStudentId=Integer.parseInt(lastId.replace("STU-",""))+1;
+            System.out.println(newStudentId);
+            return String.format("STU-%03d",newStudentId);
+        }
+        return "STU-001";
+    }
+
+    @Override
     public Student search(String id) {
         session = SessionFactoryConfiguration.getInstance().getSession();
         transaction = session.beginTransaction();

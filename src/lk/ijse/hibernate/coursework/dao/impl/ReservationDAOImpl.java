@@ -2,6 +2,7 @@ package lk.ijse.hibernate.coursework.dao.impl;
 
 import lk.ijse.hibernate.coursework.dao.custom.ReservationDAO;
 import lk.ijse.hibernate.coursework.entity.Reservation;
+import lk.ijse.hibernate.coursework.entity.Student;
 import lk.ijse.hibernate.coursework.util.SessionFactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -64,6 +65,20 @@ public class ReservationDAOImpl implements ReservationDAO {
         }catch (Exception e){
             return false;
         }
+    }
+
+    @Override
+    public String generateNewID() throws Exception {
+        String sql="FROM Reservation ORDER BY id DESC";
+        Reservation reservation= (Reservation) session.createQuery(sql).setMaxResults(1).uniqueResult();
+        session.close();
+        if (reservation!=null){
+            String lastId=reservation.getResId();
+            int newReservationId=Integer.parseInt(lastId.replace("STU-",""))+1;
+            System.out.println(newReservationId);
+            return String.format("RES-%03d",newReservationId);
+        }
+        return "RES-001";
     }
 
     @Override

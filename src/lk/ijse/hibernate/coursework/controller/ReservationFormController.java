@@ -1,5 +1,6 @@
 package lk.ijse.hibernate.coursework.controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
@@ -11,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import lk.ijse.hibernate.coursework.bo.BOFactory;
 import lk.ijse.hibernate.coursework.bo.custom.ReservationBO;
 import lk.ijse.hibernate.coursework.dto.ReservationDTO;
@@ -41,6 +43,9 @@ public class ReservationFormController implements Initializable {
     public TableColumn colRoomType;
     public TableColumn colStatus;
     public Label lblDate;
+    public JFXButton btnSave;
+    public JFXButton btnUpdate;
+    public JFXButton btnDelete;
 
 
     ReservationBO reservationBO = (ReservationBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.RESERVATION);
@@ -213,11 +218,43 @@ public class ReservationFormController implements Initializable {
         lblDate.setText("");
     }
 
+    public void addReservationOnMouseClicked(MouseEvent mouseEvent) throws Exception {
+        txtResID.setDisable(false);
+        cmbStudentID.setDisable(false);
+        cmbRoomTypeID.setDisable(false);
+        cmbStatus.setDisable(false);
+        btnSave.setDisable(false);
+        btnUpdate.setDisable(false);
+        btnDelete.setDisable(false);
+        txtResID.setText(generateNewIds());
+    }
+
+    private String generateNewIds() throws Exception {
+        try {
+            return reservationBO.generateNewReservationID();
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Failed to generate a new id " + e.getMessage()).show();
+            e.printStackTrace();
+        }
+        return "RES-001";
+    }
+
+    private void setDisable() {
+        txtResID.setDisable(true);
+        cmbStudentID.setDisable(true);
+        cmbRoomTypeID.setDisable(true);
+        cmbStatus.setDisable(true);
+        btnDelete.setDisable(true);
+        btnSave.setDisable(true);
+        btnUpdate.setDisable(true);
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setIds();
         setStatus();
         setDataTable();
+        setDisable();
 
         colResID.setCellValueFactory(new PropertyValueFactory<>("resId"));
         colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
@@ -226,6 +263,7 @@ public class ReservationFormController implements Initializable {
         colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
     }
+
 
 }
 

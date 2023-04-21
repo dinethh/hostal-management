@@ -30,4 +30,5 @@ public interface ReservationBO extends SuperBO {
     List<ReservationDTO> loadAllRes();
 
     boolean deleteReservation(ReservationDTO dto);
+    String generateNewReservationID() throws Exception;
 }

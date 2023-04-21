@@ -24,13 +24,13 @@
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
                 <Label text="Room ID">
@@ -56,9 +56,9 @@
                 <JFXComboBox fx:id="cmbRoomType" onAction="#onActioncmbRoomType" prefHeight="41.0" prefWidth="133.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <JFXTextField fx:id="txtKeyMoney" onKeyReleased="#txtKeyMoneyOnKeyReleased" prefHeight="48.0" prefWidth="133.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                 <JFXTextField fx:id="txtQTY" onKeyReleased="#txtQTYOnKeyReleased" prefHeight="54.0" prefWidth="133.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                <JFXTextField fx:id="txtRoomID" onAction="#SearchOnAction" prefHeight="50.0" prefWidth="133.0" GridPane.columnIndex="1" />
-            <Label fx:id="lblKeyMoney" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label fx:id="lblQty" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                <JFXTextField fx:id="txtRoomID" onAction="#SearchOnAction" prefHeight="50.0" prefWidth="133.0" promptText="EX: RM-001" GridPane.columnIndex="1" />
+                <Label fx:id="lblKeyMoney" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <Label fx:id="lblQty" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="7" />
             </children>
         </GridPane>
         <GridPane layoutX="31.0" layoutY="251.0" prefHeight="22.0" prefWidth="304.0">
@@ -96,19 +96,19 @@
                 <TableColumn fx:id="colQTY" prefWidth="166.66665649414062" text="QTY" />
             </columns>
         </TableView>
-      <Pane layoutX="46.0" layoutY="17.0" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #EAF2F8;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Label layoutX="42.0" layoutY="6.0" text="Room">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="46.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <image>
-            <Image url="@assests/room.png" />
-         </image>
-      </ImageView>
+        <Pane layoutX="46.0" layoutY="17.0" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #EAF2F8;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label layoutX="42.0" layoutY="6.0" text="Room">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="46.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <image>
+                <Image url="@assests/room.png" />
+            </image>
+        </ImageView>
     </children>
 </AnchorPane>

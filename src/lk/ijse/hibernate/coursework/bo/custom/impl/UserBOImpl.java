@@ -5,6 +5,7 @@ import lk.ijse.hibernate.coursework.dao.DAOFactory;
 import lk.ijse.hibernate.coursework.dao.custom.UserDAO;
 import lk.ijse.hibernate.coursework.dto.UserDTO;
 import lk.ijse.hibernate.coursework.entity.User;
+import lk.ijse.hibernate.coursework.util.SessionFactoryConfiguration;
 import org.hibernate.Session;
 
 import java.util.ArrayList;
@@ -53,6 +54,14 @@ public class UserBOImpl implements UserBO {
                 user.getUserId(),
                 user.getUser_name(),
                 user.getPassword());
+    }
+
+    @Override
+    public String generateNewUserID() throws Exception {
+        session= SessionFactoryConfiguration.getInstance().getSession();
+        userDAO.setSession(session);
+        return String.valueOf(userDAO.generateNewID());
+
     }
 
 

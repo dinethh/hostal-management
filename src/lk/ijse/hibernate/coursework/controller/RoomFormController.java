@@ -173,7 +173,7 @@ public class RoomFormController implements Initializable {
         txtRoomID.clear();
         txtQTY.clear();
         txtKeyMoney.clear();
-        cmbRoomType.setValue("");
+        cmbRoomType.setValue(null);
     }
 
     public void onActioncmbRoomType(ActionEvent actionEvent) {

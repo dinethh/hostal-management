@@ -5,7 +5,7 @@ import lk.ijse.hibernate.coursework.entity.Room;
 
 import java.util.List;
 
-public interface RoomDAO extends CrudDAO<Room> {
+public interface RoomDAO extends CrudDAO<Room,String> {
     List<String> roomIds();
 
 }

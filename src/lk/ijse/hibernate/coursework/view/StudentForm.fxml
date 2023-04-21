@@ -98,17 +98,17 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <JFXButton onAction="#SaveStudentOnAction" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #3498DB; -fx-background-radius: 5;" text="Save" textFill="WHITE">
+                <JFXButton fx:id="btnSave" onAction="#SaveStudentOnAction" prefHeight="16.0" prefWidth="69.0" style="-fx-background-color: #3498DB; -fx-background-radius: 5;" text="Save" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </JFXButton>
-                <JFXButton onAction="#UpdateStudentOnAction" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #2ECC71; -fx-background-radius: 5;" text="Update" textFill="WHITE" GridPane.columnIndex="1">
+                <JFXButton fx:id="btnUpdate" onAction="#UpdateStudentOnAction" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #2ECC71; -fx-background-radius: 5;" text="Update" textFill="WHITE" GridPane.columnIndex="1">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </JFXButton>
-                <JFXButton onAction="#DeleteStudentOnAction" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #E74C3C; -fx-background-radius: 5;" text="Delete" textFill="WHITE" GridPane.columnIndex="2">
+                <JFXButton fx:id="btnDelete" onAction="#DeleteStudentOnAction" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #E74C3C; -fx-background-radius: 5;" text="Delete" textFill="WHITE" GridPane.columnIndex="2">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
@@ -127,6 +127,11 @@
         <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="46.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <image>
                 <Image url="@assests/student.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="30.0" fitWidth="39.0" layoutX="132.0" layoutY="1.0" onMouseClicked="#addStudentOnMouseClicked" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@assests/addIcon.png" />
             </image>
         </ImageView>
     </children>

@@ -1,5 +1,6 @@
 package lk.ijse.hibernate.coursework.controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
@@ -8,13 +9,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Paint;
 import lk.ijse.hibernate.coursework.bo.BOFactory;
 import lk.ijse.hibernate.coursework.bo.custom.StudentBO;
 import lk.ijse.hibernate.coursework.dto.StudentDTO;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -46,6 +52,9 @@ public class StudentFormController implements Initializable {
     public Label lblName;
     public Label lblAddress;
     public Label lblContact;
+    public JFXButton btnSave;
+    public JFXButton btnUpdate;
+    public JFXButton btnDelete;
     StudentBO studentBO = (StudentBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.STUDENT);
     private Matcher stuNameMatcher;
     private Matcher stuAddressMatcher;
@@ -185,6 +194,7 @@ public class StudentFormController implements Initializable {
         setDataTable();
         setTblValues();
         setPatterns();
+        setDisable();
     }
 
 
@@ -201,10 +211,10 @@ public class StudentFormController implements Initializable {
 
     //Rejex
     private void setPatterns() {
-        Pattern studentNamePattern = Pattern.compile("^[a-zA-Z]{10}$");
+        Pattern studentNamePattern = Pattern.compile("[A-Za-z ]+");
         stuNameMatcher = studentNamePattern.matcher(txtName.getText());
 
-        Pattern studentAddressPattern = Pattern.compile("^[a-zA-Z]{10}$");
+        Pattern studentAddressPattern = Pattern.compile(".{3,}");
         stuAddressMatcher = studentAddressPattern.matcher(txtAddress.getText());
 
         Pattern studentContactPattern = Pattern.compile("^[0-9]{10}$");
@@ -214,7 +224,7 @@ public class StudentFormController implements Initializable {
     public void txtNameOnKeyRelesed(KeyEvent keyEvent) {
         lblName.setText("");
         txtName.setUnFocusColor(Paint.valueOf("Blue"));
-        Pattern studentNamePattern = Pattern.compile("^[a-zA-Z]{10}$");
+        Pattern studentNamePattern = Pattern.compile("[A-Za-z ]+");
         stuNameMatcher = studentNamePattern.matcher(txtName.getText());
         if (!stuNameMatcher.matches()) {
             txtName.requestFocus();
@@ -226,7 +236,7 @@ public class StudentFormController implements Initializable {
     public void txtAddressOnKeyRelesed(KeyEvent keyEvent) {
         lblAddress.setText("");
         txtAddress.setUnFocusColor(Paint.valueOf("Blue"));
-        Pattern studentAddressPattern = Pattern.compile("^[a-zA-Z]{10}$");
+        Pattern studentAddressPattern = Pattern.compile(".{3,}");
         stuAddressMatcher = studentAddressPattern.matcher(txtAddress.getText());
         if (!stuAddressMatcher.matches()) {
             txtAddress.requestFocus();
@@ -246,4 +256,41 @@ public class StudentFormController implements Initializable {
             lblContact.setText("Invalid Number");
         }
     }
+
+    private void setDisable(){
+       txtStudentID.setDisable(true);
+       txtContact.setDisable(true);
+       txtAddress.setDisable(true);
+       txtName.setDisable(true);
+       txtDOB.setDisable(true);
+       cmbGender.setDisable(true);
+       btnDelete.setDisable(true);
+       btnSave.setDisable(true);
+       btnUpdate.setDisable(true);
+    }
+
+    public void addStudentOnMouseClicked(MouseEvent mouseEvent) throws Exception {
+        txtStudentID.setDisable(false);
+        txtContact.setDisable(false);
+        txtAddress.setDisable(false);
+        txtName.setDisable(false);
+        txtDOB.setDisable(false);
+        cmbGender.setDisable(false);
+        btnDelete.setDisable(false);
+        btnSave.setDisable(false);
+        btnUpdate.setDisable(false);
+        txtStudentID.setText(generateNewIds());
+    }
+
+    private String generateNewIds() throws Exception {
+        try {
+            return studentBO.generateNewStudentID();
+        }catch (Exception e){
+            new Alert(Alert.AlertType.ERROR, "Failed to generate a new id " + e.getMessage()).show();
+            e.printStackTrace();
+        }
+        return "STU-001";
+    }
+
+
 }

@@ -1,11 +1,13 @@
 package lk.ijse.hibernate.coursework.dao.impl;
 
 import lk.ijse.hibernate.coursework.dao.custom.UserDAO;
+import lk.ijse.hibernate.coursework.entity.Student;
 import lk.ijse.hibernate.coursework.entity.User;
 import lk.ijse.hibernate.coursework.util.SessionFactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.ArrayList;
 
 /**
@@ -65,6 +67,19 @@ public class UserDAOImpl implements UserDAO {
 //        }
         return true;
 
+    }
+
+    @Override
+    public String generateNewID() throws Exception {
+        String sql="FROM User ORDER BY id DESC";
+        User user = (User) session.createQuery(sql).setMaxResults(1).uniqueResult();
+        session.close();
+        if (user!=null){
+            String lastId= user.getUserId();
+            int newUserId=Integer.parseInt(lastId.replace("USER-",""))+1;
+            return String.format("USER-%03d",newUserId);
+        }
+        return "USER-001";
     }
 
     @Override

@@ -271,28 +271,6 @@ public class ReservationBOImpl implements ReservationBO {
         Transaction transaction = session.beginTransaction();
         try {
             reservationDAO.setSession(session);
-            /*reservationDAO.delete(
-                    String.valueOf(new Reservation(
-                            dto.getResId(),
-                            dto.getDate(),
-                            new Student(
-                                    dto.getStudentDTO().getStudent_id(),
-                                    dto.getStudentDTO().getName(),
-                                    dto.getStudentDTO().getAddress(),
-                                    dto.getStudentDTO().getContact_no(),
-                                    dto.getStudentDTO().getDob(),
-                                    dto.getStudentDTO().getGender()
-                            ),
-                            new Room(
-                                    dto.getRoomDTO().getRoom_type_id(),
-                                    dto.getRoomDTO().getType(),
-                                    dto.getRoomDTO().getKey_money(),
-                                    dto.getRoomDTO().getQty()
-                            ),
-                            dto.getStatus()
-                    ))
-            );*/
-
             reservationDAO.delete(dto.getResId());
             transaction.commit();
 
@@ -308,6 +286,14 @@ public class ReservationBOImpl implements ReservationBO {
     }
 
     @Override
+    public String generateNewReservationID() throws Exception {
+        session= SessionFactoryConfiguration.getInstance().getSession();
+        reservationDAO.setSession(session);
+        return String.valueOf(reservationDAO.generateNewID());
+
+    }
+
+    @Override
     public ReservationDTO searchReservation(String id) throws Exception {
         Reservation reservation = reservationDAO.search(id);
         return new ReservationDTO(
@@ -317,6 +303,7 @@ public class ReservationBOImpl implements ReservationBO {
                 reservation.getRoom(),
                 reservation.getStatus());
     }
+
 
 
 }

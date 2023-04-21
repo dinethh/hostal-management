@@ -8,6 +8,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Paint;
 import lk.ijse.hibernate.coursework.bo.BOFactory;
 import lk.ijse.hibernate.coursework.bo.custom.UserBO;
@@ -33,6 +34,8 @@ public class UserFormController implements Initializable {
     public JFXButton btnSave;
     public Label lblUserName;
     public Label lblPassword;
+    public JFXButton btnDelete;
+    public JFXButton btnUpdate;
     UserBO userBO = (UserBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
     private Matcher userNameMatcher;
     private Matcher pwMatcher;
@@ -127,7 +130,7 @@ public class UserFormController implements Initializable {
 //    Rejex Part =====================
 
     private void setPatterns() {
-        Pattern userNamePattern = Pattern.compile("^[a-zA-Z]{4}$");
+        Pattern userNamePattern = Pattern.compile("[A-Za-z ]+");
         userNameMatcher = userNamePattern.matcher(txtUserName.getText());
         Pattern pwPattern = Pattern.compile("^[0-9]{4}$");
         pwMatcher = pwPattern.matcher(txtPassword.getText());
@@ -137,7 +140,7 @@ public class UserFormController implements Initializable {
         lblUserName.setText("");
         txtUserName.setFocusColor(Paint.valueOf("Blue"));
 
-        Pattern userNamePattern = Pattern.compile("^[a-zA-Z]{4}$");
+        Pattern userNamePattern = Pattern.compile("[A-Za-z ]+");
         userNameMatcher = userNamePattern.matcher(txtUserName.getText());
 
         if (!userNameMatcher.matches()) {
@@ -161,8 +164,39 @@ public class UserFormController implements Initializable {
         }
     }
 
+    public void addUserOnMouseClicked(MouseEvent mouseEvent) throws Exception {
+        txtUserID.setDisable(false);
+        txtUserName.setDisable(false);
+        txtPassword.setDisable(false);
+        btnUpdate.setDisable(false);
+        btnSave.setDisable(false);
+        btnDelete.setDisable(false);
+        txtUserID.setText(generateNewIds());
+    }
+
+    private String generateNewIds() throws Exception {
+        try {
+            return userBO.generateNewUserID();
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Failed to generate a new id " + e.getMessage()).show();
+            e.printStackTrace();
+        }
+        return "USER-001";
+    }
+
+    private void setDisable() {
+        txtUserID.setDisable(true);
+        txtUserName.setDisable(true);
+        txtPassword.setDisable(true);
+        btnDelete.setDisable(true);
+        btnUpdate.setDisable(true);
+        btnSave.setDisable(true);
+
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        setDisable();
         setPatterns();
     }
 

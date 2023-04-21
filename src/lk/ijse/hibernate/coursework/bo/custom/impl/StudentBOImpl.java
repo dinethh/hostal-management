@@ -5,8 +5,10 @@ import lk.ijse.hibernate.coursework.dao.DAOFactory;
 import lk.ijse.hibernate.coursework.dao.custom.StudentDAO;
 import lk.ijse.hibernate.coursework.dto.StudentDTO;
 import lk.ijse.hibernate.coursework.entity.Student;
+import lk.ijse.hibernate.coursework.util.SessionFactoryConfiguration;
 import org.hibernate.Session;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,5 +76,12 @@ public class StudentBOImpl implements StudentBO {
                 student.getContact_no(),
                 student.getDob(),
                 student.getGender());
+    }
+
+    @Override
+    public String generateNewStudentID() throws Exception {
+        session= SessionFactoryConfiguration.getInstance().getSession();
+        studentDAO.setSession(session);
+        return String.valueOf(studentDAO.generateNewID());
     }
 }

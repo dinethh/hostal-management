@@ -65,6 +65,11 @@ public class RoomDAOImpl implements RoomDAO {
     }
 
     @Override
+    public String generateNewID() throws Exception {
+        return null;
+    }
+
+    @Override
     public Room search(String id) {
         session = SessionFactoryConfiguration.getInstance().getSession();
         transaction = session.beginTransaction();

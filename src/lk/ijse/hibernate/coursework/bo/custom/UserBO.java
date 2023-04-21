@@ -15,5 +15,5 @@ public interface UserBO extends SuperBO {
     boolean deleteUser(String id) throws Exception;
 
     UserDTO searchUser(String id) throws Exception;
-
+    String generateNewUserID() throws Exception;
 }
