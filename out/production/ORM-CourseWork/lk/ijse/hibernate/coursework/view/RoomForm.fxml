@@ -61,7 +61,7 @@
             <Label fx:id="lblQty" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="7" />
             </children>
         </GridPane>
-        <GridPane layoutX="47.0" layoutY="241.0" prefHeight="51.0" prefWidth="304.0">
+        <GridPane layoutX="31.0" layoutY="251.0" prefHeight="22.0" prefWidth="304.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -88,12 +88,12 @@
                 </JFXButton>
             </children>
         </GridPane>
-        <TableView fx:id="tblRoom" layoutX="32.0" layoutY="329.0" prefHeight="200.0" prefWidth="460.0" style="-fx-background-color: #cfd8dc; -fx-padding: 5px;">
+        <TableView fx:id="tblRoom" layoutX="27.0" layoutY="287.0" prefHeight="277.0" prefWidth="667.0" style="-fx-padding: 5px; -fx-background-radius: 10px; -fx-border-radius: 10px;">
             <columns>
-                <TableColumn fx:id="colRoomID" prefWidth="88.33331298828125" text="Room ID " />
-                <TableColumn fx:id="colType" prefWidth="102.6666259765625" text="Type" />
-                <TableColumn fx:id="colKeyMoney" prefWidth="160.0" text="Key Money" />
-                <TableColumn fx:id="colQTY" prefWidth="100.0" text="QTY" />
+                <TableColumn fx:id="colRoomID" prefWidth="149.44445037841797" text="Room ID " />
+                <TableColumn fx:id="colType" prefWidth="154.55554962158203" text="Type" />
+                <TableColumn fx:id="colKeyMoney" prefWidth="190.00001525878906" text="Key Money" />
+                <TableColumn fx:id="colQTY" prefWidth="166.66665649414062" text="QTY" />
             </columns>
         </TableView>
       <Pane layoutX="46.0" layoutY="17.0" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #EAF2F8;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">

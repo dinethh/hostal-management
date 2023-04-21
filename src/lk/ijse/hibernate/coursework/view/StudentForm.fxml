@@ -17,117 +17,117 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="568.0" prefWidth="721.0" style="-fx-background-color: #cfd8dc;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.coursework.controller.StudentFormController">
-   <children>
-      <GridPane layoutX="25.0" layoutY="53.0" prefHeight="238.0" prefWidth="267.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label text="Student ID">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label text="Name" GridPane.rowIndex="2">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label text="Address" GridPane.rowIndex="4">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label text="Contact" GridPane.rowIndex="6">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label text="DOB" GridPane.rowIndex="8">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label text="Gender" GridPane.rowIndex="10">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <JFXComboBox fx:id="cmbGender" prefHeight="25.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-            <JFXTextField fx:id="txtStudentID" onAction="#SearchStudentIDonAction" GridPane.columnIndex="1" />
-            <JFXTextField fx:id="txtName" onKeyReleased="#txtNameOnKeyRelesed" prefHeight="32.0" prefWidth="133.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <JFXTextField fx:id="txtAddress" onKeyReleased="#txtAddressOnKeyRelesed" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <JFXTextField fx:id="txtContact" onKeyReleased="#txtContactOnKeyRelesed" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <JFXDatePicker fx:id="txtDOB" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <Label fx:id="lblName" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label fx:id="lblAddress" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label fx:id="lblContact" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-         </children>
-      </GridPane>
-      <TableView fx:id="tblStudent" layoutX="26.0" layoutY="325.0" prefHeight="221.0" prefWidth="638.0">
-        <columns>
-          <TableColumn fx:id="colStudentID" prefWidth="112.33333587646484" text="Student ID" />
-          <TableColumn fx:id="colName" prefWidth="108.66666412353516" text="Name" />
-            <TableColumn fx:id="colAddress" prefWidth="101.77778625488281" text="Address" />
-            <TableColumn fx:id="colContact" prefWidth="110.99998474121094" text="Contact" />
-            <TableColumn fx:id="colDOB" prefWidth="95.44439697265625" text="DOB" />
-            <TableColumn fx:id="colGender" prefWidth="134.00003051757812" text="Gender" />
-        </columns>
-      </TableView>
-      <GridPane layoutX="345.0" layoutY="227.0" prefHeight="51.0" prefWidth="304.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <JFXButton onAction="#SaveStudentOnAction" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #3498DB; -fx-background-radius: 5;" text="Save" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton onAction="#UpdateStudentOnAction" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #2ECC71; -fx-background-radius: 5;" text="Update" textFill="WHITE" GridPane.columnIndex="1">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton onAction="#DeleteStudentOnAction" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #E74C3C; -fx-background-radius: 5;" text="Delete" textFill="WHITE" GridPane.columnIndex="2">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </JFXButton>
-         </children>
-      </GridPane>
-      <Pane layoutX="46.0" layoutY="17.0" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #EAF2F8;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Label layoutX="42.0" layoutY="6.0" text="Student">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="46.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <image>
-            <Image url="@assests/student.png" />
-         </image>
-      </ImageView>
-   </children>
+    <children>
+        <GridPane layoutX="25.0" layoutY="53.0" prefHeight="238.0" prefWidth="267.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label text="Student ID">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label text="Name" GridPane.rowIndex="2">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label text="Address" GridPane.rowIndex="4">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label text="Contact" GridPane.rowIndex="6">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label text="DOB" GridPane.rowIndex="8">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label text="Gender" GridPane.rowIndex="10">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <JFXComboBox fx:id="cmbGender" prefHeight="25.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                <JFXTextField fx:id="txtStudentID" onAction="#SearchStudentIDonAction" GridPane.columnIndex="1" />
+                <JFXTextField fx:id="txtName" onKeyReleased="#txtNameOnKeyRelesed" prefHeight="32.0" prefWidth="133.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <JFXTextField fx:id="txtAddress" onKeyReleased="#txtAddressOnKeyRelesed" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <JFXTextField fx:id="txtContact" onKeyReleased="#txtContactOnKeyRelesed" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <JFXDatePicker fx:id="txtDOB" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                <Label fx:id="lblName" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <Label fx:id="lblAddress" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <Label fx:id="lblContact" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            </children>
+        </GridPane>
+        <TableView fx:id="tblStudent" layoutX="19.0" layoutY="367.0" prefHeight="198.0" prefWidth="667.0" style="-fx-padding: 5px; -fx-background-radius: 10px; -fx-border-radius: 10px;">
+            <columns>
+                <TableColumn fx:id="colStudentID" prefWidth="112.33333587646484" text="Student ID" />
+                <TableColumn fx:id="colName" prefWidth="108.66666412353516" text="Name" />
+                <TableColumn fx:id="colAddress" prefWidth="101.77778625488281" text="Address" />
+                <TableColumn fx:id="colContact" prefWidth="110.99998474121094" text="Contact" />
+                <TableColumn fx:id="colDOB" prefWidth="95.44439697265625" text="DOB" />
+                <TableColumn fx:id="colGender" prefWidth="134.00003051757812" text="Gender" />
+            </columns>
+        </TableView>
+        <GridPane layoutX="23.0" layoutY="330.0" prefHeight="22.0" prefWidth="304.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <JFXButton onAction="#SaveStudentOnAction" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #3498DB; -fx-background-radius: 5;" text="Save" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton onAction="#UpdateStudentOnAction" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #2ECC71; -fx-background-radius: 5;" text="Update" textFill="WHITE" GridPane.columnIndex="1">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton onAction="#DeleteStudentOnAction" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #E74C3C; -fx-background-radius: 5;" text="Delete" textFill="WHITE" GridPane.columnIndex="2">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </JFXButton>
+            </children>
+        </GridPane>
+        <Pane layoutX="46.0" layoutY="17.0" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #EAF2F8;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label layoutX="42.0" layoutY="6.0" text="Student">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="46.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <image>
+                <Image url="@assests/student.png" />
+            </image>
+        </ImageView>
+    </children>
 </AnchorPane>

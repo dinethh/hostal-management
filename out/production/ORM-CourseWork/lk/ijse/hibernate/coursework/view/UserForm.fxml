@@ -51,11 +51,13 @@
             <Label fx:id="lblPassword" prefHeight="17.0" prefWidth="173.0" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
       </GridPane>
-      <GridPane layoutX="47.0" layoutY="241.0" prefHeight="51.0" prefWidth="378.0">
+      <GridPane layoutX="135.0" layoutY="241.0" prefHeight="51.0" prefWidth="482.0">
          <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="181.0" minWidth="10.0" prefWidth="129.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="84.33331298828125" minWidth="7.333343505859375" prefWidth="7.333343505859375" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="173.66665649414062" minWidth="10.0" prefWidth="120.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="137.0" minWidth="9.0" prefWidth="9.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0" prefWidth="229.0" />
          </columnConstraints>
          <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -66,12 +68,12 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton onAction="#onActionDeleteUser" prefHeight="30.0" prefWidth="138.0" style="-fx-background-color: #E74C3C; -fx-background-radius: 5;" text="Remove User" textFill="WHITE" GridPane.columnIndex="2">
+            <JFXButton onAction="#onActionDeleteUser" prefHeight="30.0" prefWidth="138.0" style="-fx-background-color: #E74C3C; -fx-background-radius: 5;" text="Delete User" textFill="WHITE" GridPane.columnIndex="4">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton onAction="#onActionUpdateUser" prefHeight="30.0" prefWidth="118.0" style="-fx-background-color: #2ECC71; -fx-background-radius: 5;" text="Update User" textFill="WHITE" GridPane.columnIndex="1">
+            <JFXButton onAction="#onActionUpdateUser" prefHeight="30.0" prefWidth="118.0" style="-fx-background-color: #2ECC71; -fx-background-radius: 5;" text="Update User" textFill="WHITE" GridPane.columnIndex="2">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
